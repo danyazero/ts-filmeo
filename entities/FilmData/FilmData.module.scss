@@ -1,0 +1,17 @@
+.background{
+  @apply bg-primary h-[500px] w-fit rounded-2xl mx-8;
+
+  .filmData{
+    @apply bg-white h-[500px] w-80 p-7 rotate-3 rounded-2xl;
+
+    .mainData{
+      @apply mt-3;
+      td{
+        @apply py-1.5
+      }
+      td:nth-child(2n+1){
+        @apply pr-5;
+      }
+    }
+  }
+}

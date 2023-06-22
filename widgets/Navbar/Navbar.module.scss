@@ -1,0 +1,10 @@
+ .navbar{
+   @apply flex fixed left-0 top-0 flex-col gap-6 bg-nav p-4 pt-16 h-screen min-w-fit;
+
+   .link{
+     @apply transition-colors hover:bg-light p-5 rounded-2xl;
+   }
+   .active{
+     @apply bg-light rounded-2xl
+   }
+ }

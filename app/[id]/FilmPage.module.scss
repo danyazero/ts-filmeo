@@ -1,0 +1,7 @@
+.container{
+  @apply flex flex-row min-w-full;
+}
+
+.movieName{
+  @apply text-white py-8;
+}

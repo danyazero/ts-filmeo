@@ -1,0 +1,31 @@
+.movieCard{
+  @apply h-48 w-80;
+
+  .moviePoster{
+    @apply object-cover h-40 w-80 rounded-2xl;
+  }
+
+  .caption{
+    @apply flex flex-row items-center justify-between py-2;
+
+    .movieName{
+      @apply text-white font-bold;
+    }
+
+    .movieYear{
+      @apply text-secondaryText
+    }
+  }
+
+  .information{
+    @apply flex flex-row gap-2;
+
+    .rating{
+      @apply flex flex-row gap-0.5;
+
+      .ratingScore{
+        @apply text-secondaryText
+      }
+    }
+  }
+}
