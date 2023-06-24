@@ -1,0 +1,15 @@
+
+.mainData {
+  @apply mt-3;
+  td {
+    @apply py-1.5
+  }
+
+  td:nth-child(2n+1) {
+    @apply pr-5;
+  }
+
+  .caption{
+    @apply line-clamp-[7];
+  }
+}

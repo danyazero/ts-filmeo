@@ -7,5 +7,6 @@ export interface IFilm{
     genre: string[],
     runtime: number,
     trailer: string,
+    caption: string,
     poster: string
 }

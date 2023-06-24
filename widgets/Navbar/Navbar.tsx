@@ -1,7 +1,9 @@
+"use client";
 import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import st from ".//Navbar.module.scss"
+import {usePathname} from "next/navigation";
 
 function Navbar() {
 
@@ -10,9 +12,11 @@ function Navbar() {
         {href: "/search", src: "/search.svg", alt: "search"}
     ]
 
+    const pathname = usePathname();
+
     return (
         <nav className={st.navbar}>
-            {navigation.map(({href, src, alt}) => <Link href={href} className={st.link}><Image src={src} priority={true} alt={alt} width={25} height={25}/></Link>)}
+            {navigation.map(({href, src, alt}, index) => <Link key={"navbar-item_" + index} href={href} className={st.link + (pathname == href ? " " + st.active : "")}><Image className={st.icon} src={src} priority={true} alt={alt} width={20} height={20}/></Link>)}
         </nav>
     );
 }

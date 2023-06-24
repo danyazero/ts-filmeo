@@ -1,0 +1,27 @@
+
+.recommendedMovie {
+  @apply w-4/6 h-80;
+
+  .poster {
+    @apply object-cover h-full w-full rounded-2xl;
+  }
+
+  .movieName {
+    @apply relative bottom-36 text-white left-9;
+  }
+
+  .movieCaption {
+    @apply relative bottom-36 left-9 text-white flex-wrap w-3/4;
+  }
+
+  .timeInfo {
+    @apply relative flex flex-row gap-2 bottom-32 left-9;
+
+    p {
+      @apply text-white;
+    }
+  }
+}
+
+
+

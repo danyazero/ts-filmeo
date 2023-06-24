@@ -1,10 +1,14 @@
  .navbar{
-   @apply flex fixed left-0 top-0 flex-col gap-6 bg-nav p-4 pt-16 h-screen min-w-fit;
+   @apply flex fixed left-0 top-0 flex-col gap-6 bg-nav p-4 pt-16 h-full min-w-fit shadow-xl;
 
    .link{
-     @apply transition-colors hover:bg-light p-5 rounded-2xl;
+     @apply transition-colors hover:bg-secondaryLight p-5 rounded-2xl;
    }
    .active{
-     @apply bg-light rounded-2xl
+     @apply bg-secondaryLight rounded-2xl p-5;
+   }
+
+   .icon{
+     @apply w-[20px] h-[20px];
    }
  }

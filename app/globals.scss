@@ -9,3 +9,7 @@
 h2{
   @apply text-2xl font-bold
 }
+
+img{
+  @apply w-fit h-fit;
+}

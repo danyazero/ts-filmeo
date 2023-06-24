@@ -1,0 +1,11 @@
+.rating{
+  @apply flex flex-row gap-0.5 items-center;
+
+  .ratingScore{
+    @apply text-secondaryText;
+  }
+
+  .star{
+    @apply w-[13px] h-[13px];
+  }
+}

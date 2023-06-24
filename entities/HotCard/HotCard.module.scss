@@ -1,0 +1,7 @@
+.background{
+  @apply bg-primary min-h-full w-fit rounded-2xl mx-8;
+
+  .filmData{
+    @apply bg-white min-h-full w-80 p-7 rotate-3 rounded-2xl;
+  }
+}

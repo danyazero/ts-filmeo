@@ -3,5 +3,6 @@ export interface IMovieCard {
     name: string,
     year: number,
     poster: string,
-    rating: number
+    rating: number,
+    saved?: boolean
 }

@@ -4,5 +4,6 @@ export interface IFilmData{
     country: string,
     genre: string[],
     runtime: number,
+    caption: string,
     rating: number
 }

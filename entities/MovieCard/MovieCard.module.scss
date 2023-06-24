@@ -1,0 +1,27 @@
+.movieCard{
+  @apply h-56 w-96;
+
+  .movieSaved{
+    @apply relative w-[20px] h-[20px] float-right bottom-full right-3;
+  }
+
+  .moviePoster{
+    @apply object-cover h-48 w-96 rounded-2xl;
+  }
+
+  .caption{
+    @apply flex flex-row items-center justify-between w-full py-2;
+
+    .movieName{
+      @apply text-white font-medium;
+    }
+
+    .movieYear{
+      @apply text-secondaryText
+    }
+  }
+
+  .information{
+    @apply flex flex-row gap-2;
+  }
+}
