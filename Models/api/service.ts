@@ -1,9 +1,17 @@
-export async function getMovies(page: number) {
-    const response = await fetch(`https://my-json-server.typicode.com/danyazero/films-json/movies?&_page=${page}&_limit=12`, {
+export async function getMovies(data: {url?: string, page: string}) {
+
+    const response = await fetch(`http://localhost:3303/movies?&_page=${data.page}&_limit=9`, {
         next: {
             revalidate: 120
         }
     })
+
+    return response.json()
+}
+
+export async function getSearchedMovies(q: string, page: string) {
+
+    const response = await fetch(`http://localhost:3303/movies?q=${q}&_page=${page}&_limit=9`)
 
     return response.json()
 }

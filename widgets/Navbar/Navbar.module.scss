@@ -5,7 +5,7 @@
      @apply transition-colors hover:bg-secondaryLight p-5 rounded-2xl;
    }
    .active{
-     @apply bg-secondaryLight rounded-2xl p-5;
+     @apply bg-secondaryLight p-5 rounded-2xl;
    }
 
    .icon{

@@ -1,5 +1,5 @@
 .movieCard{
-  @apply h-56 w-96;
+  @apply h-56 w-96 hover:scale-105 transition-transform;
 
   .movieSaved{
     @apply relative w-[20px] h-[20px] float-right bottom-full right-3;
@@ -13,7 +13,7 @@
     @apply flex flex-row items-center justify-between w-full py-2;
 
     .movieName{
-      @apply text-white font-medium;
+      @apply text-white font-medium line-clamp-[1];
     }
 
     .movieYear{

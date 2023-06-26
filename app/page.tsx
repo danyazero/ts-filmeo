@@ -1,13 +1,15 @@
-import MovieCard from "@/entities/MovieCard/MovieCard";
-import {IFilm} from "@/Models/Models";
 import {Category} from "@/shared/Category/Category";
 import {getMovies} from "@/Models/api/service";
 import {Recommended} from "@/shared/Recomended/Recommended";
 import {HotCard} from "@/entities/HotCard/HotCard";
+import {MoviesCards} from "@/entities/MoviesCards/MoviesCards";
+import useSWR from "swr/immutable";
+import {IFilm} from "@/Models/Models";
 
 export default async function Home() {
 
-    const films: IFilm[] = await getMovies(1)
+    const films: IFilm[] = await getMovies({page: '1'})
+    // const {data: films, isLoading} = useSWR({url: "movies", page: '1'}, getMovies)
 
     return (
         <>
@@ -25,13 +27,7 @@ export default async function Home() {
 
                 </HotCard>
             </div>
-            <h2 className={"text-white py-6 text-2xl font-medium"}>Special for you</h2>
-            <div className={"flex flex-row flex-wrap gap-8 max-w-7xl"}>
-                {
-                    films.map((element, index) => <MovieCard saved={index % 2 == 0} key={"Movie_Card_"+index} id={element.id} name={element.name} year={element.year}
-                                                             rating={element.rating} poster={element.poster}/>)
-                }
-            </div>
+            <MoviesCards header={"Special for you"} movies={films}/>
         </>
     )
 }

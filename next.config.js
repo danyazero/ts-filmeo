@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ["gidonline.io"]
+        domains: ["gidonline.io", "localhost"]
     }
 }
 

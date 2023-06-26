@@ -1,5 +1,5 @@
 .backButton{
-  @apply flex flex-row w-fit items-center gap-2 cursor-pointer;
+  @apply flex flex-row w-fit items-center gap-2 cursor-pointer hover:scale-105 transition-transform;
 
   p{
     @apply text-white text-sm;

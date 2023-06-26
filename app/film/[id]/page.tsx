@@ -8,7 +8,7 @@ import {FilmData} from "@/shared/FilmData/FilmData";
 import {BackButton} from "@/shared/BackButton/BackButton";
 
 async function getData(index: string){
-    const response = await fetch('https://my-json-server.typicode.com/danyazero/films-json/movies/' + index, {
+    const response = await fetch('http://localhost:3303/movies/' + index, {
         next: {
             revalidate: 120
         }

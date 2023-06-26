@@ -1,0 +1,19 @@
+
+
+
+
+.search{
+  @apply flex flex-row gap-2;
+
+  .searchInput{
+    @apply px-4 py-3 w-full rounded-2xl bg-secondaryLight text-secondaryText outline-none;
+  }
+
+  .searchButton{
+    @apply bg-secondaryLight py-4 px-5 rounded-2xl hover:opacity-90 transition-colors;
+
+    .searchIcon{
+      @apply w-5 h-5 fill-white;
+    }
+  }
+}
