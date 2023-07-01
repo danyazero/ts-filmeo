@@ -2,5 +2,6 @@ import {IMovieCard} from "@/entities/MovieCard/MovieCard.interface";
 
 export interface IMoviesCards {
     header: string,
-    movies: IMovieCard[]
+    params: string,
+    pagination: {page: string, genre: string}
 }

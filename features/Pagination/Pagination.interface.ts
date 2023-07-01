@@ -1,3 +1,3 @@
 export interface IPagination{
-    page: string
+    params: {page: string, genre: string}
 }

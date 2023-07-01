@@ -27,7 +27,7 @@ export default async function Home() {
 
                 </HotCard>
             </div>
-            <MoviesCards header={"Special for you"} movies={films}/>
+            <MoviesCards header={"Special for you"} params={"_page=1"}/>
         </>
     )
 }

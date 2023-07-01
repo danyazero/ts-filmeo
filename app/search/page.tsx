@@ -2,16 +2,10 @@
 import React, {FC, useEffect} from 'react';
 import {useRouter} from "next/navigation";
 
-type Props = {
-    params: {
-        page: string
-    }
-}
-
-const SearchPage: FC<Props> = (props) => {
+const SearchPage: FC = () => {
     const {push} = useRouter()
     useEffect(() => {
-        return push('/search/' + props.params.page + '/all')
+        return push('/search/1/all')
     }, [])
 
     return(<></>)

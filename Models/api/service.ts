@@ -1,3 +1,5 @@
+import {IFilm} from "@/Models/Models";
+
 export async function getMovies(data: {url?: string, page: string}) {
 
     const response = await fetch(`http://localhost:3303/movies?&_page=${data.page}&_limit=9`, {
@@ -9,9 +11,9 @@ export async function getMovies(data: {url?: string, page: string}) {
     return response.json()
 }
 
-export async function getSearchedMovies(q: string, page: string) {
+export async function getSearchedMovies(_data: {url: string, params: string}) {
 
-    const response = await fetch(`http://localhost:3303/movies?q=${q}&_page=${page}&_limit=9`)
+    const response = await fetch(`http://localhost:3303/movies?${_data.params}&_limit=9`)
 
     return response.json()
 }

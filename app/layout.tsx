@@ -19,8 +19,8 @@ export default function RootLayout({
         <html lang="en">
         <body className={[inter.className, "flex flex-row"].join(" ")}>
         <Navbar/>
-        <div className={"ml-[120px] w-full flex flex-col items-center"}>
-            <div className={"max-w-7xl pt-8"}>
+        <div className={"ml-24 w-full flex flex-col items-center"}>
+            <div className={"max-w-7xl w-[80rem] pt-8"}>
                 {children}
             </div>
         </div>

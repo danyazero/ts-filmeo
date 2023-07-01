@@ -1,0 +1,11 @@
+.pagination{
+  @apply flex flex-row gap-4;
+
+  .paginationButton{
+    @apply bg-secondaryLight rounded-2xl px-4 py-2 hover:opacity-75 text-white text-xl;
+  }
+
+  .disabled{
+    @apply opacity-60 hover:opacity-60 pointer-events-none;
+  }
+}
