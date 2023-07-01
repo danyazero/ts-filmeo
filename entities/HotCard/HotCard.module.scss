@@ -1,7 +1,7 @@
 .background{
-  @apply bg-primary min-h-full w-fit rounded-2xl ml-8;
+  @apply bg-primary min-h-full w-96 rounded-2xl ml-8;
 
   .filmData{
-    @apply bg-white min-h-full w-80 p-7 rotate-3 rounded-2xl hover:rotate-0 transition-transform;
+    @apply bg-white min-h-full w-96 p-7 rotate-3 rounded-2xl hover:rotate-0 transition-transform;
   }
 }

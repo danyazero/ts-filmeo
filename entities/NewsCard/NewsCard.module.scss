@@ -1,0 +1,11 @@
+.news{
+  @apply flex flex-col justify-around h-4/5;
+
+  .preview{
+    @apply rounded-2xl w-full;
+  }
+
+  .newsName{
+    @apply text-xl font-bold line-clamp-2 mt-1.5;
+  }
+}

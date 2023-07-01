@@ -1,0 +1,25 @@
+.comment{
+
+  @apply flex flex-col gap-2 w-full bg-secondaryLight mb-2 p-5 rounded-2xl;
+
+  .username{
+    @apply text-xl text-white underline;
+  }
+
+  .text{
+    @apply text-xl text-white;
+  }
+
+  .commentRate{
+    @apply flex flex-row gap-2;
+
+    .likes{
+      @apply text-green-500;
+    }
+
+    .dislikes{
+      @apply text-red-500;
+    }
+
+  }
+}

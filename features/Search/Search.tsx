@@ -12,14 +12,19 @@ export const Search: FC<ISearch> = (props) => {
     const router = useRouter()
 
 
-    async function onSearchSubmit(value: string) {
+    function onSearchSubmit(value: string) {
         router.push('/search/1/' + props.genre + '?' + 'q=' + value)
+    }
+
+    function clearSearch(){
+        router.push('/search/1/' + props.genre)
     }
 
     return (
         <>
             <div>
                 <SearchInput onSubmit={onSearchSubmit}/>
+                <p className={"text-white"} onClick={clearSearch}>Clear</p>
                 <MoviesCards header={'Founded for you'} pagination={props} params={searchEngine({
                     _page: props.page,
                     genre_like: props.genre

@@ -1,3 +1,5 @@
+import {IComment} from "@/entities/Comment/Comment.interface";
+
 export interface IFilm{
     id: number,
     name: string,

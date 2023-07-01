@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import st from ".//FilmData.module.scss"
+import st from "./FilmData.module.scss"
 import {Rating} from "@/shared/Rating/Rating";
-import {IFilmData} from "@/shared/FilmData/FilmData.interface";
+import {IFilmData} from "@/entities/FilmData/FilmData.interface";
 
 export const FilmData: FC<IFilmData> = (props) => {
     return (
