@@ -1,0 +1,10 @@
+.saveButton{
+  @apply bg-primary px-12 py-3 flex flex-row gap-1.5 h-fit w-fit rounded-2xl items-center hover:scale-105 transition-transform cursor-pointer;
+  p{
+    @apply text-white;
+  }
+  .icon{
+    @apply w-4 h-4;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(128deg) brightness(102%) contrast(104%);
+  }
+}

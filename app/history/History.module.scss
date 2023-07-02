@@ -1,0 +1,17 @@
+.historyPage{
+
+  .header{
+    @apply flex flex-row justify-between items-center;
+
+    p{
+      @apply text-white;
+    }
+    h2 {
+      @apply text-white py-5;
+    }
+  }
+
+  .moviesHistory{
+    @apply flex flex-row flex-wrap gap-x-16 gap-y-8;
+  }
+}

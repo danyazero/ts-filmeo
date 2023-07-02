@@ -1,6 +1,10 @@
 .news{
   @apply flex flex-col justify-around h-4/5;
 
+  p{
+    @apply text-black;
+  }
+
   .preview{
     @apply rounded-2xl w-full;
   }

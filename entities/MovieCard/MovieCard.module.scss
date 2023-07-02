@@ -1,12 +1,13 @@
 .movieCard{
-  @apply h-56 w-96 hover:scale-105 transition-transform;
+  @apply h-56 w-96 hover:scale-105 transition-transform flex flex-col;
 
   .movieSaved{
-    @apply relative w-[20px] h-[20px] float-right bottom-full right-3;
+    @apply relative w-[20px] h-[20px] bottom-full left-[92%];
+    filter: invert(56%) sepia(59%) saturate(3912%) hue-rotate(355deg) brightness(101%) contrast(91%);
   }
 
   .moviePoster{
-    @apply object-cover h-48 w-96 rounded-2xl;
+    @apply object-cover min-h-[12rem] min-w-[24rem] rounded-2xl;
   }
 
   .caption{

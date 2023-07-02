@@ -9,7 +9,8 @@ function Navbar() {
 
     const navigation = [
         {href: "/", src: "/home.svg", alt: "home"},
-        {href: "/search/1/all", src: "/search.svg", alt: "search"}
+        {href: "/search/1/all", src: "/search.svg", alt: "search"},
+        {href: "/history", src: "/history.svg", alt: "history"}
     ]
 
     const pathname = usePathname();

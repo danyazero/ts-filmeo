@@ -8,6 +8,10 @@ import {FilmData} from "@/entities/FilmData/FilmData";
 import {BackButton} from "@/shared/BackButton/BackButton";
 import {Comment} from "@/entities/Comment/Comment";
 import {Comments} from "@/widgets/Comments/Comments";
+import {SaveButton} from "@/shared/SaveButton/SaveButton";
+import {log} from "util";
+import {SaveMovie} from "@/features/SaveMovie/SaveMovie";
+import {SaveHistory} from "@/features/SaveHistory/SaveHistory";
 
 async function getData(index: string) {
     const response = await fetch('http://localhost:3303/movies/' + index, {
@@ -39,7 +43,11 @@ export default async function FilmPage(props: Props) {
     return (
         <>
             <BackButton/>
-            <h2 className={st.movieName}>{film.name}</h2>
+            <SaveHistory movieId={props.params.id}/>
+            <div className={"flex flex-row justify-between items-center py-2"}>
+                <h2 className={st.movieName}>{film.name}</h2>
+                <SaveMovie/>
+            </div>
             <div className={st.container}>
                 <div className={"w-9/12"}>
                     <iframe width={900} className={"max-w-full"} height={500} src={film.trailer + "?rel=0&border=0"}
