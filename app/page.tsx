@@ -1,12 +1,14 @@
 import {Category} from "@/shared/Category/Category";
 import {getMovies, getNews} from "@/Models/api/service";
-import {Recommended} from "@/shared/Recomended/Recommended";
+import {Recommended} from "@/entities/Recomended/Recommended";
 import {HotCard} from "@/entities/HotCard/HotCard";
 import {MoviesCards} from "@/entities/MoviesCards/MoviesCards";
 import useSWR from "swr/immutable";
 import {IFilm} from "@/Models/Models";
 import {NewsCard} from "@/entities/NewsCard/NewsCard";
 import {INewsCard} from "@/entities/NewsCard/NewsCard.interface";
+import Link from "next/link";
+import {FilmPoster} from "@/entities/FilmPoster/FilmPoster";
 
 export default async function Home() {
 
@@ -16,7 +18,7 @@ export default async function Home() {
 
     return (
         <>
-            <div className={"flex flex-row gap-3 py-4"}>
+            <div className={"flex flex-row gap-3 w-full py-4 lg:overflow-hidden overflow-x-scroll"}>
                 <Category unicode={"1F37F"} title={"All"}/>
                 <Category unicode={"1F601"} title={"Comedy"}/>
                 <Category unicode={"1F984"} title={"Fantasy"}/>
@@ -24,10 +26,16 @@ export default async function Home() {
                 <Category unicode={"1F4D7"} title={"History"}/>
                 <Category unicode={"1F633"} title={"Horror"}/>
             </div>
-            <div className={"pb-3 flex flex-row gap-3"}>
-                <Recommended id={films[1].id} rating={films[1].rating} name={films[1].name} poster={films[1].poster} caption={films[1].caption} year={films[1].year} genre={films[1].genre} runtime={films[1].runtime}/>
+            <div className={"pb-3 lg:h-96 h-fit lg:flex lg:flex-row flex-col gap-3 hidden"}>
+
+                <FilmPoster large={true} id={7} name={films[7].name} poster={films[7].poster} cover={films[7].cover}>
+                    <Recommended id={films[7].id} rating={films[7].rating} name={films[7].name}
+                                 caption={films[7].caption} year={films[7].year}
+                                 genre={films[7].genre} runtime={films[7].runtime}/>
+                </FilmPoster>
                 <HotCard>
-                {news ? <NewsCard name={news[0].name} preview={news[0].preview} date={news[0].date} text={news[0].text}/> : <p>Loading...</p>}
+                    {news ? <NewsCard name={news[0].name} preview={news[0].preview} date={news[0].date}
+                                      text={news[0].text}/> : <p>Loading...</p>}
                 </HotCard>
             </div>
             <MoviesCards header={"Special for you"} params={"_page=1"}/>

@@ -1,0 +1,10 @@
+.poster{
+  @apply w-4/6 max-h-[32rem] flex items-center;
+
+  .trailer{
+    @apply relative left-[calc(50%-80px)] bottom-72 text-white flex flex-row gap-2 hover:scale-105 transition-transform cursor-pointer;
+    img{
+      @apply w-8 h-8;
+    }
+  }
+}

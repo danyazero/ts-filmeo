@@ -1,15 +1,14 @@
 import React, {FC} from 'react';
-import {IRecommended} from "@/shared/Recomended/Recomended.interface";
-import st from ".//Recomended.module.scss"
+import {IRecommended} from "@/entities/Recomended/Recomended.interface";
+import st from "./Recomended.module.scss"
 import Image from "next/image";
 import {Rating} from "@/shared/Rating/Rating";
-import Link from "next/link";
 
 export const Recommended: FC<IRecommended> = (props) => {
     return (
-        <div className={st.recommendedMovie}>
-            <Link href={"/film/" + props.id}>
-                <Image className={st.poster} src={props.poster} width={300} height={160} alt={props.name}/>
+        <>
+
+            <div className={st.info}>
                 <h2 className={st.movieName}>{props.name}</h2>
                 <p className={st.movieCaption}>{props.caption}</p>
                 <div className={st.timeInfo}>
@@ -17,7 +16,7 @@ export const Recommended: FC<IRecommended> = (props) => {
                     <p>{props.runtime} min</p>
                     <Rating rating={props.rating}/>
                 </div>
-            </Link>
-        </div>
+            </div>
+        </>
     );
 }

@@ -1,0 +1,21 @@
+.info {
+  @apply h-fit;
+  .movieName {
+    @apply relative text-white left-9;
+  }
+
+  .movieCaption {
+    @apply relative left-9 text-white flex-wrap w-3/4 line-clamp-3;
+  }
+
+  .timeInfo {
+    @apply relative flex flex-row gap-2 left-9;
+
+    p {
+      @apply text-white;
+    }
+  }
+}
+
+
+

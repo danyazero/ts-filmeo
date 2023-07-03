@@ -10,6 +10,6 @@
   }
 
   .newsName{
-    @apply text-xl font-bold line-clamp-2 mt-1.5;
+    @apply md:text-xl text-sm font-bold line-clamp-2 mt-1.5;
   }
 }

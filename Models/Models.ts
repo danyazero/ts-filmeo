@@ -10,5 +10,6 @@ export interface IFilm{
     runtime: number,
     trailer: string,
     caption: string,
+    cover: string,
     poster: string
 }

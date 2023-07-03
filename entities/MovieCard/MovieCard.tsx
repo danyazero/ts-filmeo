@@ -10,9 +10,9 @@ const MovieCard: FC<IMovieCard> = (props) => {
     return(
         <>
             <Link href={"/film/" + props.id} className={st.movieCard}>
-                <Image className={st.moviePoster} src={props.poster} alt={props.name} width={180} height={100}/>
+                <Image className={st.moviePoster} src={props.cover} alt={props.name} width={180} height={100}/>
                 <div className={st.caption}>
-                    <p className={st.movieName}>{props.name}</p>
+                    <h3 className={st.movieName}>{props.name}</h3>
                     <div className={st.information}>
                         <p className={st.movieYear}>{props.year}</p>
                         <Rating rating={props.rating}/>

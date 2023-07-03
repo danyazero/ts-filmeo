@@ -6,7 +6,7 @@ import {usePathname} from "next/navigation";
 export const SaveMovie: FC = () => {
     const movieId = usePathname().split("/")[2]
     function saveMovie(){
-        console.log("Saved! " + movieId)
+        alert("Saved! " + movieId)
     }
  return (
   <>

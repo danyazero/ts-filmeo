@@ -7,7 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-
+      maxWidth: {
+        'lgp': '26rem',
+      },
       colors: {
         primary: "#F37515",
         secondary: "#1C2024",

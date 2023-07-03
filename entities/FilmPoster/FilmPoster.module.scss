@@ -1,0 +1,15 @@
+.recommendedMovie {
+  @apply w-full h-full;
+
+  .cover {
+    @apply object-cover h-full w-full rounded-2xl filter brightness-50 blur-[2px];
+  }
+
+  .poster{
+    @apply relative left-3 h-full w-auto rounded-2xl;
+  }
+}
+
+.infoBlock {
+  @apply w-full h-[90%] relative bottom-[95%] flex flex-row items-center;
+}

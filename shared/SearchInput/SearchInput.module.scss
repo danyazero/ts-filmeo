@@ -3,7 +3,7 @@
 
 
 .search{
-  @apply flex flex-row gap-2;
+  @apply flex flex-col gap-2;
 
   .searchInput{
     @apply px-4 py-3 w-full rounded-2xl bg-secondaryLight text-secondaryText outline-none;

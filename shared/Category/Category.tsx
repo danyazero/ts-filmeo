@@ -9,7 +9,8 @@ export const Category: FC<ICategory> = (props) => {
  return (
   <>
     <Link className={st.categoryButton} href={"/search/1/" + props.title.toLowerCase()}>
-        {props.unicode && String.fromCodePoint(parseInt(props.unicode, 16))} {props.title}
+        <p>{props.unicode && String.fromCodePoint(parseInt(props.unicode, 16))}</p>
+        {props.title}
     </Link>
   </>
  );

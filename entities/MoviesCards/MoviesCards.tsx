@@ -14,10 +14,11 @@ export const MoviesCards: FC<IMoviesCards> = (props) => {
 
     return (
         <>
-            {props.params}
+            {/*{props.params}*/}
             <h2 className={st.header}>{props.header}</h2>
             <div className={st.moviesCards}>
                 {(!isLoading && data) ? data.map((element, index) => <MovieCard saved={index % 2 == 0} key={"Movie_Card_" + index}
+                                                                                cover={element.cover}
                                                                                 id={element.id} name={element.name}
                                                                                 year={element.year}
                                                                                 rating={element.rating} poster={element.poster}/>) : <div>Loading...</div>}

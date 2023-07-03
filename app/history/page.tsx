@@ -5,7 +5,6 @@ import {getMovieById} from "@/app/history/api/getMovieById";
 import MovieCard from "@/entities/MovieCard/MovieCard";
 import {IMovieCard} from "@/entities/MovieCard/MovieCard.interface";
 import st from ".//History.module.scss"
-import {element} from "prop-types";
 import {useRouter} from "next/navigation";
 
 const Page: FC = () => {
@@ -36,7 +35,7 @@ const Page: FC = () => {
                 }}>clear</p>
             </div>
             <div className={st.moviesHistory}>
-                {history.length > 0 ? (!isLoading && data ? sortAndMapMovies(data).reverse().map((element, index) => <MovieCard key={"history_movie_" + index}
+                {history.length > 0 ? (!isLoading && data ? sortAndMapMovies(data).reverse().map((element, index) => <MovieCard cover={element.cover} key={"history_movie_" + index}
                                                                                         id={element.id}
                                                                                         name={element.name}
                                                                                         year={element.year}

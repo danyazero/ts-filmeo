@@ -1,5 +1,5 @@
 .moviesCards{
-  @apply flex flex-row flex-wrap gap-x-16 gap-y-8;
+  @apply flex flex-row flex-wrap gap-x-16 gap-y-8 justify-center md:justify-between;
 }
 
 .header{
