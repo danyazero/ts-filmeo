@@ -3,7 +3,7 @@ import React, {FC, useEffect, useState} from 'react';
 import {SearchInput} from "@/shared/SearchInput/SearchInput";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import {ISearchParams, searchEngine} from "@/features/Search/utils/searchEngine";
-import {MoviesCards} from "@/entities/MoviesCards/MoviesCards";
+import {MoviesGrid} from "@/widgets/MoviesGrid/MoviesGrid";
 import {ISearch} from "@/features/Search/Search.interface";
 import {useQuery} from "@/features/Search/utils/useQuery";
 
@@ -25,7 +25,7 @@ export const Search: FC<ISearch> = (props) => {
             <div>
                 <SearchInput onSubmit={onSearchSubmit}/>
                 <p className={"text-white"} onClick={clearSearch}>Clear</p>
-                <MoviesCards header={'Founded for you'} pagination={props} params={searchEngine({
+                <MoviesGrid header={'Founded for you'} pagination={props} params={searchEngine({
                     _page: props.page,
                     genre_like: props.genre
                 }) + useQuery()}/>

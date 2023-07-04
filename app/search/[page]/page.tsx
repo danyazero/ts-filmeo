@@ -1,6 +1,5 @@
-'use client'
-import React, {FC, useEffect} from 'react';
-import {useRouter} from "next/navigation";
+import React, {FC} from 'react';
+import {redirect} from "next/navigation";
 
 type Props = {
     params: {
@@ -9,10 +8,7 @@ type Props = {
 }
 
 const SearchPage: FC<Props> = (props) => {
-    const {push} = useRouter()
-    useEffect(() => {
-        return push('/search/' + props.params.page + '/all')
-    }, [])
+    redirect('/search/'+props.params.page+'/all')
 
     return(<></>)
 }

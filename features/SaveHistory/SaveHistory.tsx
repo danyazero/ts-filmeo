@@ -9,7 +9,7 @@ export const SaveHistory: FC<ISaveHistory> = (props) => {
         let history: string[] = []
         history.push(props.movieId)
         if (localStorage.getItem(key)){
-            let prevHistory: string[] = JSON.parse(localStorage.getItem(key))
+            let prevHistory: string[] = JSON.parse(localStorage.getItem(key) || "")
 
             prevHistory = prevHistory.filter(element => element != props.movieId)
             if (prevHistory.length > 9){

@@ -1,23 +1,20 @@
-'use client'
-import React, {FC, useState} from 'react';
-import {IMoviesCards} from "@/entities/MoviesCards/MoviesCards.interface";
+import React, {FC} from 'react';
+import {IMoviesCards} from "@/widgets/MoviesGrid/MoviesGrid.interface";
 import MovieCard from "@/entities/MovieCard/MovieCard";
-import st from ".//MoviesCards.module.scss"
-import useSWR from "swr";
-import {getMovies, getSearchedMovies} from "@/Models/api/service";
+import st from "./MoviesGrid.module.scss"
+import {getSearchedMovies} from "@/Models/api/service";
 import {IFilm} from "@/Models/Models";
 import {Pagination} from "@/features/Pagination/Pagination";
 
-export const MoviesCards: FC<IMoviesCards> = (props) => {
+export const MoviesGrid: FC<IMoviesCards> = async (props) => {
 
-    const {data, isLoading} = useSWR<IFilm[]>({url: "movies", params: props.params}, getSearchedMovies)
+    const data: IFilm[] = await getSearchedMovies(props.params)
 
     return (
         <>
-            {/*{props.params}*/}
             <h2 className={st.header}>{props.header}</h2>
             <div className={st.moviesCards}>
-                {(!isLoading && data) ? data.map((element, index) => <MovieCard saved={index % 2 == 0} key={"Movie_Card_" + index}
+                {(data) ? data.map((element, index) => <MovieCard saved={index % 2 == 0} key={"Movie_Card_" + index}
                                                                                 cover={element.cover}
                                                                                 id={element.id} name={element.name}
                                                                                 year={element.year}

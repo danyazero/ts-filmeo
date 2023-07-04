@@ -12,7 +12,7 @@ const Page: FC = () => {
     const router = useRouter()
     useEffect(() => {
         console.log(localStorage.getItem("history"))
-        if (localStorage.getItem("history")) setHistory(JSON.parse(localStorage.getItem("history")))
+        if (localStorage.getItem("history")) setHistory(JSON.parse(localStorage.getItem("history") || ""))
     }, [])
 
     const {data, isLoading} = useSWR<IMovieCard[]>({key: 'history', movies: history}, getMovieById)

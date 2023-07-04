@@ -5,14 +5,14 @@ import {Input} from "@/shared/Input/Input";
 import {addComment} from "@/features/AddComment/api/addComment";
 import {usePathname} from "next/navigation";
 
-export const AddComment: FC = () => {
+export const AddComment: FC<{movieId: string}> = (props) => {
     const [comment, setComment] = useState<string>("")
-    const pathname = usePathname()
     async function addCommentSubmit(event: React.FormEvent<HTMLFormElement>){
         event.isDefaultPrevented()
         event.preventDefault()
 
-        await addComment(parseInt(pathname.split('/')[2]), "danyazero", comment)
+        await addComment(parseInt(props.movieId), "danyazero", comment)
+        setComment("")
         //movieId: useMovieId, id: 4, username: "danyazero", text: comment
     }
 

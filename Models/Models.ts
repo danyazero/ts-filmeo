@@ -13,3 +13,5 @@ export interface IFilm{
     cover: string,
     poster: string
 }
+
+export const direction: string = 'http://192.168.0.229:3303'

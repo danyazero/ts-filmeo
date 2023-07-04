@@ -1,23 +1,17 @@
-import Image from 'next/image'
-import MovieCard from "@/entities/MovieCard/MovieCard";
-import React, {FC, useState} from "react";
-import {IFilm} from "@/Models/Models";
+import React from "react";
+import {direction, IFilm} from "@/Models/Models";
 import {HotCard} from "@/entities/HotCard/HotCard";
 import st from "./FilmPage.module.scss"
 import {FilmData} from "@/entities/FilmData/FilmData";
 import {BackButton} from "@/shared/BackButton/BackButton";
-import {Comment} from "@/entities/Comment/Comment";
 import {Comments} from "@/widgets/Comments/Comments";
-import {SaveButton} from "@/shared/SaveButton/SaveButton";
-import {log} from "util";
 import {SaveMovie} from "@/features/SaveMovie/SaveMovie";
 import {SaveHistory} from "@/features/SaveHistory/SaveHistory";
-import {Recommended} from "@/entities/Recomended/Recommended";
-import {MoviePoster} from "@/features/MoviePoster/MoviePoster";
 import {FilmPoster} from "@/entities/FilmPoster/FilmPoster";
+import {getAllMovies, getMovies} from "@/Models/api/service";
 
 async function getData(index: string) {
-    const response = await fetch('http://192.168.0.229:3303/movies/' + index, {
+    const response = await fetch(direction + '/movies/' + index, {
         next: {
             revalidate: 120
         }
@@ -38,6 +32,14 @@ export async function generateMetadata({params: {id}}: Props) {
     return {
         title: film.name + " | Filmeo"
     }
+}
+
+export async function generateStaticParams(){
+    const movies: IFilm[] = await getAllMovies()
+
+    return movies.map((movie) => ({
+        slug: movie.id
+    }))
 }
 
 export default async function FilmPage(props: Props) {
@@ -68,7 +70,7 @@ export default async function FilmPage(props: Props) {
                               genre={film.genre} runtime={film.runtime} rating={film.rating}/>
                 </HotCard>
             </div>
-            <Comments/>
+            <Comments movieId={props.params.id}/>
         </>
     )
 }

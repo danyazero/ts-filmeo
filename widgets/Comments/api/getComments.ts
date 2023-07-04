@@ -1,5 +1,21 @@
-export async function getComments(_data: {key: string, movieId: number}){
-    const response = await fetch('http://192.168.0.229:3303/comments?movie='+ _data.movieId)
+import {direction} from "@/Models/Models";
+
+export async function getComments(movieId: string){
+    const response = await fetch(direction + '/comments?movie='+ movieId, {
+        next: {
+            revalidate: 120
+        }
+    })
+
+    return response.json()
+}
+
+export async function getAllComments(){
+    const response = await fetch(direction + '/comments', {
+        next: {
+            revalidate: 120
+        }
+    })
 
     return response.json()
 }

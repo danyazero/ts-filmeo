@@ -1,5 +1,5 @@
  .navbar{
-   @apply flex fixed md:left-0 md:top-0 bottom-0 md:flex-col flex-row gap-6 bg-nav md:p-4 p-2 md:pt-16 md:h-full md:w-fit w-full h-fit shadow-xl z-40;
+   @apply flex fixed lg:left-0 lg:top-0 bottom-0 lg:flex-col flex-row gap-6 bg-nav lg:p-4 p-2 lg:pt-16 lg:h-full lg:w-fit w-full h-fit shadow-xl z-40;
 
    .link{
      @apply transition-colors hover:bg-secondaryLight p-5 rounded-2xl;

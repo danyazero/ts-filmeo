@@ -2,13 +2,17 @@ import {Category} from "@/shared/Category/Category";
 import {getMovies, getNews} from "@/Models/api/service";
 import {Recommended} from "@/entities/Recomended/Recommended";
 import {HotCard} from "@/entities/HotCard/HotCard";
-import {MoviesCards} from "@/entities/MoviesCards/MoviesCards";
+import {MoviesGrid} from "@/widgets/MoviesGrid/MoviesGrid";
 import useSWR from "swr/immutable";
 import {IFilm} from "@/Models/Models";
 import {NewsCard} from "@/entities/NewsCard/NewsCard";
 import {INewsCard} from "@/entities/NewsCard/NewsCard.interface";
 import Link from "next/link";
 import {FilmPoster} from "@/entities/FilmPoster/FilmPoster";
+import {MoviesRow} from "@/widgets/MoviesRow/MoviesRow";
+import {searchEngine} from "@/features/Search/utils/searchEngine";
+import {Genres} from "@/widgets/Genres/Genres";
+import {SWRConfig} from "swr";
 
 export default async function Home() {
 
@@ -18,14 +22,7 @@ export default async function Home() {
 
     return (
         <>
-            <div className={"flex flex-row gap-3 w-full py-4 lg:overflow-hidden overflow-x-scroll"}>
-                <Category unicode={"1F37F"} title={"All"}/>
-                <Category unicode={"1F601"} title={"Comedy"}/>
-                <Category unicode={"1F984"} title={"Fantasy"}/>
-                <Category unicode={"1F622"} title={"Drama"}/>
-                <Category unicode={"1F4D7"} title={"History"}/>
-                <Category unicode={"1F633"} title={"Horror"}/>
-            </div>
+            <Genres/>
             <div className={"pb-3 lg:h-96 h-fit lg:flex lg:flex-row flex-col gap-3 hidden"}>
 
                 <FilmPoster large={true} id={7} name={films[7].name} poster={films[7].poster} cover={films[7].cover}>
@@ -38,7 +35,10 @@ export default async function Home() {
                                       text={news[0].text}/> : <p>Loading...</p>}
                 </HotCard>
             </div>
-            <MoviesCards header={"Special for you"} params={"_page=1"}/>
+            <MoviesRow header={"Fantasy"} category={"fantasy"}
+                       params={searchEngine({_page: '1', genre_like: "fantasy"})}/>
+            <MoviesRow header={"Drama"} category={"drama"} params={searchEngine({_page: '1', genre_like: "drama"})}/>
+            <MoviesGrid header={"Special for you"} params={"_page=1"}/>
         </>
     )
 }

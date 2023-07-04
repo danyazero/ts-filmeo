@@ -1,0 +1,7 @@
+.moviesCards{
+  @apply flex flex-row flex-wrap lg:gap-x-16 lg:gap-y-8 justify-between;
+}
+
+.header{
+  @apply text-white py-6 text-2xl font-medium;
+}

@@ -1,0 +1,7 @@
+.genres{
+  @apply flex flex-row gap-3 w-full py-4 lg:overflow-hidden overflow-x-scroll;
+}
+
+.genres::-webkit-scrollbar{
+  display: none;
+}
