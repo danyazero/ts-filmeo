@@ -13,6 +13,8 @@ import {MoviesRow} from "@/widgets/MoviesRow/MoviesRow";
 import {searchEngine} from "@/features/Search/utils/searchEngine";
 import {Genres} from "@/widgets/Genres/Genres";
 import {SWRConfig} from "swr";
+import {RowCards} from "@/shared/RowCards/RowCards";
+import {RenderHistory} from "@/features/RenderHistory/RenderHistory";
 
 export default async function Home() {
 
@@ -38,6 +40,9 @@ export default async function Home() {
             <MoviesRow header={"Fantasy"} category={"fantasy"}
                        params={searchEngine({_page: '1', genre_like: "fantasy"})}/>
             <MoviesRow header={"Drama"} category={"drama"} params={searchEngine({_page: '1', genre_like: "drama"})}/>
+            <RowCards link={'/history'} header={"History"}>
+                <RenderHistory/>
+            </RowCards>
             <MoviesGrid header={"Special for you"} params={"_page=1"}/>
         </>
     )

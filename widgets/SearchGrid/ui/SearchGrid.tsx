@@ -1,18 +1,22 @@
+'use client'
 import React, {FC} from 'react';
 import MovieCard from "@/entities/MovieCard/MovieCard";
-import {getSearchedMovies} from "@/Models/api/service";
+import st from "./SearchGrid.module.scss"
+import {getSearchedMovies} from "./../api/getSearchedMovies";
 import {IFilm} from "@/Models/Models";
-import {IMovieRow} from "@/widgets/MoviesRow/MoviesRow.interface";
-import {RowCards} from "@/shared/RowCards/RowCards";
+import {Pagination} from "@/features/Pagination/Pagination";
+import useSWR from "swr";
+import {ISearchGrid} from "@/widgets/SearchGrid/ui/SearchGrid.interface";
 
-export const MoviesRow: FC<IMovieRow> = async (props) => {
+export const SearchGrid: FC<ISearchGrid> = (props) => {
 
-    const data: IFilm[] = await getSearchedMovies(props.params)
+    let {data, isLoading} = useSWR<IFilm[]>({key: 'movies', params: props.params}, getSearchedMovies)
 
     return (
         <>
-            <RowCards link={'search/1/'+props.category} header={props.header}>
-                {(data) ? data.map((element, index) => <MovieCard saved={index % 2 == 0}
+            <h2 className={st.header}>{props.header}</h2>
+            <div className={st.moviesCards}>
+                {(!isLoading && data) ? data.map((element, index) => <MovieCard saved={index % 2 == 0}
                                                                                 key={"Movie_Card_" + index}
                                                                                 cover={element.cover}
                                                                                 id={element.id} name={element.name}
@@ -20,7 +24,8 @@ export const MoviesRow: FC<IMovieRow> = async (props) => {
                                                                                 rating={element.rating}
                                                                                 poster={element.poster}/>) :
                     <div>Loading...</div>}
-            </RowCards>
+            </div>
+            <Pagination params={props.pagination}/>
         </>
     );
 }

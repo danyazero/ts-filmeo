@@ -1,5 +1,5 @@
 .movieCard{
-  @apply lg:h-56 lg:w-96 h-36 w-44 lg:hover:scale-105 transition-transform flex flex-col;
+  @apply lg:h-56 lg:w-96 lg:min-w-[24rem] h-36 min-w-[10rem] w-[48%] lg:hover:scale-105 transition-transform flex flex-col;
 
   .movieSaved{
     @apply relative w-[20px] h-[20px] lg:bottom-full lg:left-[92%] bottom-[92%] left-[85%];
@@ -7,11 +7,11 @@
   }
 
   .moviePoster{
-    @apply object-cover lg:min-h-[12rem] lg:min-w-[24rem] min-h-[6.5rem] min-w-[11rem] rounded-2xl;
+    @apply object-cover lg:min-h-[12rem] lg:min-w-[24rem] min-h-[6.5rem] min-w-full rounded-2xl;
   }
 
   .caption{
-    @apply flex flex-row items-center justify-between w-full py-2;
+    @apply flex flex-row items-center justify-between w-full max-w-full py-2;
 
     .movieName{
       @apply text-white lg:text-base text-sm font-medium line-clamp-[1];
@@ -23,6 +23,6 @@
   }
 
   .information{
-    @apply flex flex-row gap-2;
+    @apply flex flex-row gap-1.5 min-w-fit;
   }
 }

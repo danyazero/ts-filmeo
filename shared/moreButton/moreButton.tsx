@@ -8,12 +8,12 @@ export const MoreButton: FC<IMoreButton> = (props) => {
     const router = useRouter()
 
     function moreButtonClicked() {
-        router.push('/search/1/' + props.category)
+        router.push(props.link)
     }
 
  return (
   <>
-      <p className={st.moreButton} onClick={moreButtonClicked}>more</p>
+      <p onClick={moreButtonClicked}>more</p>
   </>
  );
 }

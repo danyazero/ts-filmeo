@@ -6,6 +6,10 @@
   display: none;
 }
 
+.moviesCards{
+  scrollbar-width: none;
+}
+
 .moreButton{
   @apply cursor-pointer;
 }

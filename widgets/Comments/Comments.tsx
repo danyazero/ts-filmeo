@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {AddComment} from "@/features/AddComment/AddComment";
 import {Comment} from "@/entities/Comment/Comment";
 import useSWR from "swr";
-import {getAllComments, getComments} from "@/widgets/Comments/api/getComments";
+import {getComments} from "@/widgets/Comments/api/getComments";
 import {IComment} from "@/entities/Comment/Comment.interface";
 import st from ".//Comments.module.scss"
 

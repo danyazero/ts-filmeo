@@ -9,13 +9,3 @@ export async function getComments(movieId: string){
 
     return response.json()
 }
-
-export async function getAllComments(){
-    const response = await fetch(direction + '/comments', {
-        next: {
-            revalidate: 120
-        }
-    })
-
-    return response.json()
-}

@@ -1,11 +1,11 @@
 "use client";
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC} from 'react';
 import {SearchInput} from "@/shared/SearchInput/SearchInput";
-import {usePathname, useRouter, useSearchParams} from "next/navigation";
-import {ISearchParams, searchEngine} from "@/features/Search/utils/searchEngine";
-import {MoviesGrid} from "@/widgets/MoviesGrid/MoviesGrid";
+import { useRouter} from "next/navigation";
+import {searchEngine} from "@/features/Search/utils/searchEngine";
 import {ISearch} from "@/features/Search/Search.interface";
 import {useQuery} from "@/features/Search/utils/useQuery";
+import {SearchGrid} from "@/widgets/SearchGrid";
 
 export const Search: FC<ISearch> = (props) => {
 
@@ -19,16 +19,17 @@ export const Search: FC<ISearch> = (props) => {
     function clearSearch(){
         router.push('/search/1/' + props.genre)
     }
+    const params = searchEngine({
+        _page: props.page,
+        genre_like: props.genre
+    }) + useQuery()
 
     return (
         <>
             <div>
                 <SearchInput onSubmit={onSearchSubmit}/>
                 <p className={"text-white"} onClick={clearSearch}>Clear</p>
-                <MoviesGrid header={'Founded for you'} pagination={props} params={searchEngine({
-                    _page: props.page,
-                    genre_like: props.genre
-                }) + useQuery()}/>
+                <SearchGrid header={"Founded for you"} params={params} pagination={{page: props.page, genre: props.genre}}/>
             </div>
         </>
     );

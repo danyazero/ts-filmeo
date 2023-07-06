@@ -33,7 +33,7 @@ export async function getNews(id: number) {
     return response.json()
 }
 
-export async function getSearchedMovies(params: string ) {
+export async function getSearchedMovies(params: string) {
 
     const response = await fetch(direction + `/movies?${params}&_limit=9`)
 

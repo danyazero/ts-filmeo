@@ -1,3 +1,3 @@
 export interface IMoreButton{
-    category: string
+    link: string
 }

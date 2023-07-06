@@ -15,8 +15,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <html lang="en">
         <body className={[inter.className, "flex flex-row"].join(" ")}>
             <Navbar/>
-            <div className={"lg:ml-24 lg:mb-5 mb-24 w-full flex flex-col lg:items-center"}>
-                <div className={"xl:max-w-7xl max-w-full  pt-8 lg:px-0 px-3"}>
+            <div className={"lg:ml-24 lg:mb-5 mb-24 min-w-full flex flex-col lg:items-center overflow-hidden"}>
+                <div className={"xl:max-w-7xl xl:min-w-[80rem] max-w-full  pt-8 lg:px-0 px-3"}>
                     {children}
                 </div>
             </div>
