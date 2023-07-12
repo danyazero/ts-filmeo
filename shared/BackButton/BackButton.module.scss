@@ -2,10 +2,10 @@
   @apply flex flex-row w-fit items-center gap-2 cursor-pointer hover:scale-105 transition-transform;
 
   p{
-    @apply text-white text-sm;
+    @apply text-sm;
   }
 
   .icon{
-    @apply w-4 h-4;
+    @apply dark:w-4 dark:h-4 dark:bg-transparent dark:p-0 w-6 h-6 p-1.5 bg-navDark rounded-2xl;
   }
 }

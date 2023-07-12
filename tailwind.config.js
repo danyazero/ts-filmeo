@@ -7,15 +7,22 @@ module.exports = {
   ],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        'lg': 'repeat(auto-fill, 24rem)',
+        'sm': 'repeat(auto-fill, min(48%, 11rem))'
+      },
       maxWidth: {
         'lgp': '26rem',
       },
       colors: {
         primary: "#F37515",
-        secondary: "#1C2024",
+        secondaryDark: "#1C2024",
+        secondary: "#fff",
         secondaryLight: "#272c31",
+        secondaryLightDark: "#eeeeee",
         secondaryText: "#606366",
-        nav: "#1f2426",
+        nav: "#e7e7e7",
+        navDark: "#1f2426",
       },
     },
   },

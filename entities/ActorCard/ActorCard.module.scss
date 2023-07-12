@@ -1,0 +1,19 @@
+.actorCard{
+    @apply  flex flex-row min-w-fit;
+
+    .actorPhoto{
+        @apply w-20 h-28 rounded-l-2xl object-cover;
+    }
+
+    .actorInfo{
+        @apply flex flex-col p-4 w-max dark:bg-secondaryLight bg-secondaryLightDark rounded-r-2xl;
+
+        h2{
+            @apply leading-6 w-max;
+        }
+
+        p{
+            @apply w-max;
+        }
+    }
+}

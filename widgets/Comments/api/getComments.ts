@@ -1,7 +1,7 @@
-import {direction} from "@/Models/Models";
+import {direction, myDirection} from "@/Models/Models";
 
 export async function getComments(movieId: string){
-    const response = await fetch(direction + '/comments?movie='+ movieId, {
+    const response = await fetch(myDirection + '/comments/'+ movieId, {
         next: {
             revalidate: 120
         }

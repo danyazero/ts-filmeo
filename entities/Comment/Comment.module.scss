@@ -1,13 +1,13 @@
 .comment{
 
-  @apply flex flex-col gap-2 w-full bg-secondaryLight mb-2 p-5 rounded-2xl;
+  @apply flex flex-col gap-2 w-full dark:bg-secondaryLight bg-secondaryLightDark mb-2 p-5 rounded-2xl;
 
   .username{
-    @apply text-xl text-white underline;
+    @apply text-xl underline;
   }
 
   .text{
-    @apply text-xl text-white;
+    @apply text-xl;
   }
 
   .commentRate{

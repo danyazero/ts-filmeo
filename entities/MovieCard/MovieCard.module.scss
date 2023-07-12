@@ -1,5 +1,5 @@
 .movieCard{
-  @apply lg:h-56 lg:w-96 lg:min-w-[24rem] h-36 min-w-[10rem] w-[48%] lg:hover:scale-105 transition-transform flex flex-col;
+  @apply lg:h-56 lg:w-96 lg:min-w-[24rem] h-36 min-w-[10rem] w-[48%] max-w-[12rem] lg:hover:scale-105 transition-transform flex flex-col;
 
   .movieSaved{
     @apply relative w-[20px] h-[20px] lg:bottom-full lg:left-[92%] bottom-[92%] left-[85%];
@@ -14,11 +14,11 @@
     @apply flex flex-row items-center justify-between w-full max-w-full py-2;
 
     .movieName{
-      @apply text-white lg:text-base text-sm font-medium line-clamp-[1];
+      @apply  line-clamp-[1];
     }
 
     .movieYear{
-      @apply text-secondaryText
+      @apply text-secondaryText;
     }
   }
 

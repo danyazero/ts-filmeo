@@ -3,7 +3,7 @@ import React, {FC, useState} from 'react';
 import st from ".//AddComment.module.scss"
 import {Input} from "@/shared/Input/Input";
 import {addComment} from "@/features/AddComment/api/addComment";
-import {usePathname} from "next/navigation";
+import {Button} from "@/shared/Button/Button";
 
 export const AddComment: FC<{movieId: string}> = (props) => {
     const [comment, setComment] = useState<string>("")
@@ -13,15 +13,14 @@ export const AddComment: FC<{movieId: string}> = (props) => {
 
         await addComment(parseInt(props.movieId), "danyazero", comment)
         setComment("")
-        //movieId: useMovieId, id: 4, username: "danyazero", text: comment
     }
 
  return (
-  <div className={st.addComment}>
-    <form onSubmit={addCommentSubmit}>
+  <>
+    <form className={st.addComment} onSubmit={addCommentSubmit}>
         <Input value={comment} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setComment(event.target.value)} placeholder={"Share your opinion"}/>
-        <button type={"submit"}>Add</button>
+        <Button title={"Add"}/>
     </form>
-  </div>
+  </>
  );
 }

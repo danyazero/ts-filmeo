@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {Search} from "@/features/Search/Search";
 import {Pagination} from "@/features/Pagination/Pagination";
 import {IFilm} from "@/Models/Models";
+import {Genres} from "@/widgets/Genres/Genres";
 
 type Props = {
     params: {
@@ -24,6 +25,7 @@ const CategoryPage: FC<Props> = (props) => {
                 <p className={"text-white"}>
                     Genre {props.params.genre} (page {props.params.page})
                 </p>
+                <Genres/>
                 <Search page={props.params.page} genre={props.params.genre}/>
             </div>
         </>

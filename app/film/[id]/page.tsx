@@ -1,5 +1,5 @@
 import React from "react";
-import {direction, IFilm} from "@/Models/Models";
+import {direction, IFilm, IRole, myDirection} from "@/Models/Models";
 import {HotCard} from "@/entities/HotCard/HotCard";
 import st from "./FilmPage.module.scss"
 import {FilmData} from "@/entities/FilmData/FilmData";
@@ -8,7 +8,10 @@ import {Comments} from "@/widgets/Comments/Comments";
 import {SaveMovie} from "@/features/SaveMovie/SaveMovie";
 import {SaveHistory} from "@/features/SaveHistory/SaveHistory";
 import {FilmPoster} from "@/entities/FilmPoster/FilmPoster";
-import {getAllMovies, getMovies} from "@/Models/api/service";
+import {getAllMovies} from "@/Models/api/service";
+import {IActorCard} from "@/entities/ActorCard/ActorCard.interface";
+import {ActorCard} from "@/entities/ActorCard/ActorCard";
+import {RowCards} from "@/shared/RowCards/RowCards";
 
 async function getData(index: string) {
     const response = await fetch(direction + '/movies/' + index, {
@@ -16,6 +19,19 @@ async function getData(index: string) {
             revalidate: 120
         }
     })
+
+    return response.json()
+}
+
+async function getActors(roles: IRole[]) {
+    const indexes = roles.map(element => element.id)
+    const actors = indexes.map((element) => "id=" + element).join("&")
+    const response = await fetch(direction + '/actors?' + actors, {
+        next: {
+            revalidate: 120
+        }
+    })
+
 
     return response.json()
 }
@@ -34,7 +50,7 @@ export async function generateMetadata({params: {id}}: Props) {
     }
 }
 
-export async function generateStaticParams(){
+export async function generateStaticParams() {
     const movies: IFilm[] = await getAllMovies()
 
     return movies.map((movie) => ({
@@ -44,6 +60,8 @@ export async function generateStaticParams(){
 
 export default async function FilmPage(props: Props) {
     const film: IFilm = await getData(props.params.id)
+    console.log(film.name)
+    const actors: IActorCard[] = await getActors(film.actors)
 
     return (
         <>
@@ -51,12 +69,12 @@ export default async function FilmPage(props: Props) {
             <SaveHistory movieId={props.params.id}/>
             <div className={"lg:h-36 h-28 my-8"}>
                 <FilmPoster large={false} id={film.id} name={film.name} poster={film.poster} cover={film.cover}>
-                        <div className={"w-full flex flex-row justify-between px-3 items-center"}>
-                            <h2 className={st.movieName}>{film.name}</h2>
-                            <div className={st.saveButton}>
-                                <SaveMovie/>
-                            </div>
+                    <div className={"w-full flex flex-row justify-between px-3 items-center"}>
+                        <h2 className={st.movieName}>{film.name}</h2>
+                        <div className={st.saveButton}>
+                            <SaveMovie/>
                         </div>
+                    </div>
                 </FilmPoster>
             </div>
 
@@ -70,6 +88,11 @@ export default async function FilmPage(props: Props) {
                               genre={film.genre} runtime={film.runtime} rating={film.rating}/>
                 </HotCard>
             </div>
+            <RowCards header={"Cast"}>
+                {(actors && film && film.actors.length > 0) && actors.map((element, index) => <ActorCard role={film.actors[index].role} id={element.id} photo={element.photo}
+                                                                     name={element.name} surname={element.surname}
+                                                                     born={element.born}/>)}
+            </RowCards>
             <Comments movieId={props.params.id}/>
         </>
     )

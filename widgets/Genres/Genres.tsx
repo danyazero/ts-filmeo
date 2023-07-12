@@ -1,18 +1,42 @@
 import React, {FC} from 'react';
 import st from ".//Genres.module.scss"
-import {Category} from "@/shared/Category/Category";
+import {Button} from "@/shared/Button/Button";
+import {GetEmoji} from "@/shared/GetEmoji/GetEmoji";
+import {useRouter} from "next/navigation";
 
 export const Genres: FC = () => {
- return (
-  <>
-      <div className={st.genres}>
-          <Category unicode={"1F37F"} title={"All"}/>
-          <Category unicode={"1F601"} title={"Comedy"}/>
-          <Category unicode={"1F984"} title={"Fantasy"}/>
-          <Category unicode={"1F622"} title={"Drama"}/>
-          <Category unicode={"1F4D7"} title={"History"}/>
-          <Category unicode={"1F633"} title={"Horror"}/>
-      </div>
-  </>
- );
+
+    function linkGenerator(genre: string) {
+        return `/search/1/${genre.toLowerCase()}`
+    }
+
+    return (
+        <>
+            <div className={st.genres}>
+                <Button title={"All"} link={linkGenerator("all")}>
+                    <GetEmoji unicode={"1F37F"}/>
+                </Button>
+
+                <Button title={"Comedy"} link={linkGenerator("Comedy")}>
+                    <GetEmoji unicode={"1F601"}/>
+                </Button>
+                <Button title={"Fantasy"} link={linkGenerator("Fantasy")}>
+                    <GetEmoji unicode={"1F984"}/>
+                </Button>
+
+                <Button title={"Drama"} link={linkGenerator("Drama")}>
+                    <GetEmoji unicode={"1F622"}/>
+                </Button>
+
+                <Button title={"History"} link={"History"}>
+                    <GetEmoji unicode={"1F4D7"}/>
+                </Button>
+
+                <Button title={"Horror"} link={linkGenerator("Horror")}>
+                    <GetEmoji unicode={"1F633"}/>
+                </Button>
+
+            </div>
+        </>
+    );
 }

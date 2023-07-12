@@ -3,15 +3,19 @@
 @tailwind utilities;
 
 body, html{
-  @apply overflow-x-hidden max-w-full;
+  @apply overflow-x-hidden max-w-full select-none;
 }
 
 :root {
-  @apply bg-secondary select-none;
+  @apply bg-secondary dark:bg-secondaryDark;
 }
 
 h2{
-  @apply lg:text-2xl text-base font-bold
+  @apply lg:text-2xl text-base font-bold dark:text-white text-black;
+}
+
+h3{
+  @apply lg:text-base text-sm font-medium dark:text-white text-black;
 }
 
 img{
@@ -19,5 +23,5 @@ img{
 }
 
 p{
-  @apply text-white lg:text-lg text-xs;
+  @apply dark:text-white text-secondaryLight lg:text-base text-xs;
 }
