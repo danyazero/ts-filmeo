@@ -2,7 +2,7 @@ import {direction, IFilm, myDirection} from "@/Models/Models";
 
 export async function getMovies(data: { url?: string, page: string }) {
 
-    const response = await fetch(direction + `/movies?&_page=${data.page}&_limit=9`, {
+    const response = await fetch(myDirection + `/movies?&_page=${data.page}`, {
         next: {
             revalidate: 120
         }
@@ -35,7 +35,7 @@ export async function getNews(id: number) {
 
 export async function getSearchedMovies(params: string) {
 
-    const response = await fetch(direction + `/movies?${params}`)
+    const response = await fetch(myDirection + `/movies?${params}`)
 
     return response.json()
 }

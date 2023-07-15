@@ -8,6 +8,8 @@ import {searchEngine} from "@/features/Search/utils/searchEngine";
 import {Genres} from "@/widgets/Genres/Genres";
 import {RowCards} from "@/shared/RowCards/RowCards";
 import {RenderHistory} from "@/features/RenderHistory/RenderHistory";
+import {LoginButton} from "@/shared/LoginButton/LoginButton";
+import {LogoutButton} from "@/shared/LogoutButton/LogoutButton";
 
 export default async function Home() {
 
@@ -15,12 +17,14 @@ export default async function Home() {
 
     return (
         <>
+            <LoginButton/>
+            <LogoutButton/>
             <Genres/>
             <div className={"pb-3 lg:h-96 lg:max-h-96 max-h-56 h-56"}>
-                <FilmPoster large={true} id={7} name={films[7].name} poster={films[7].poster} cover={films[7].cover}>
-                    <Recommended id={films[7].id} rating={films[7].rating} name={films[7].name}
-                                 caption={films[7].caption} year={films[7].year}
-                                 genre={films[7].genre} runtime={films[7].runtime}/>
+                <FilmPoster large={true} id={films[6].id} name={films[6].name} poster={films[6].poster} cover={films[6].cover}>
+                    <Recommended id={films[6].id} rating={films[6].rating} name={films[6].name}
+                                 caption={films[6].caption} year={films[6].year}
+                                 genre={films[6].genre} runtime={films[6].runtime}/>
                 </FilmPoster>
             </div>
             <MoviesRow header={"Fantasy"} category={"fantasy"}

@@ -16,6 +16,10 @@ export const RenderHistory: FC = () => {
 
     const {data, isLoading} = useSWR<IMovieCard[]>({key: 'history', movies: history}, getMovieById)
 
+    useEffect(() => {
+        console.log(data)
+    }, [data])
+
  return (
   <>
       {history.length > 0 ? (!isLoading && data ? sortAndMapMovies(data, history).reverse().map((element, index) =>

@@ -6,13 +6,13 @@ export const RowCards: FC<{children: ReactNode, link?: string, header: string}> 
 
     return (
         <>
-            <div className={st.headerContainer}>
-                <h2 className={st.header}>{props.header}</h2>
-                {props.link && <MoreButton link={props.link}/>}
-            </div>
-            <div className={st.moviesCards}>
-                {props.children}
-            </div>
+            {props.children ? <><div className={st.headerContainer}>
+                    <h2>{props.header}</h2>
+                    {props.link && <MoreButton link={props.link}/>}
+                </div>
+                <div className={st.moviesCards}>
+                    {props.children}
+                </div></> : <></>}
         </>
     );
 }

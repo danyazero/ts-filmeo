@@ -12,9 +12,11 @@ export const Button: FC<IButton> = (props) => {
         props.link && push(props.link)
     }
 
+    console.log(props.disabled)
+
     return (
         <>
-            <button className={st.button} onClick={onButtonClick} type={props.link ? "button" : "submit"}>
+            <button disabled={props.disabled} className={st.button} onClick={props.link ? onButtonClick : () => {}} type={props.link ? "button" : "submit"}>
                 {props.children} {props.title}
             </button>
         </>

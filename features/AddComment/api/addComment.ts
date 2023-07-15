@@ -1,14 +1,11 @@
-import {direction} from "@/Models/Models";
+import {direction, myDirection} from "@/Models/Models";
 
 export async function addComment(movieId: number, username: string, text: string){
-    const response = await fetch(direction + '/comments', {
+    const response = await fetch(myDirection + '/comments/' + movieId.toString(), {
         method: 'POST',
         body: JSON.stringify({
-            movie: movieId,
             username: username,
-            text: text,
-            likes: 0,
-            dislikes: 0
+            text: text
         }),
         headers: {
             'Content-type': 'application/json; charset=UTF-8',

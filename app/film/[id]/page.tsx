@@ -12,9 +12,10 @@ import {getAllMovies} from "@/Models/api/service";
 import {IActorCard} from "@/entities/ActorCard/ActorCard.interface";
 import {ActorCard} from "@/entities/ActorCard/ActorCard";
 import {RowCards} from "@/shared/RowCards/RowCards";
+import {redirect} from "next/navigation";
 
 async function getData(index: string) {
-    const response = await fetch(direction + '/movies/' + index, {
+    const response = await fetch(myDirection + '/movies/' + index, {
         next: {
             revalidate: 120
         }
@@ -25,7 +26,7 @@ async function getData(index: string) {
 
 async function getActors(roles: IRole[]) {
     const indexes = roles.map(element => element.id)
-    const actors = indexes.map((element) => "id=" + element).join("&")
+    const actors = indexes.map((element) => "[id]=" + element).join("&")
     const response = await fetch(direction + '/actors?' + actors, {
         next: {
             revalidate: 120
@@ -59,9 +60,16 @@ export async function generateStaticParams() {
 }
 
 export default async function FilmPage(props: Props) {
-    const film: IFilm = await getData(props.params.id)
-    console.log(film.name)
-    const actors: IActorCard[] = await getActors(film.actors)
+    let film: IFilm;
+    try {
+        film = await getData(props.params.id)
+    } catch (e) {
+        console.warn(e)
+        redirect('/')
+    }
+
+    let actors: IActorCard[] = await getActors(film.actors)
+
 
     return (
         <>
@@ -89,9 +97,11 @@ export default async function FilmPage(props: Props) {
                 </HotCard>
             </div>
             <RowCards header={"Cast"}>
-                {(actors && film && film.actors.length > 0) && actors.map((element, index) => <ActorCard role={film.actors[index].role} id={element.id} photo={element.photo}
-                                                                     name={element.name} surname={element.surname}
-                                                                     born={element.born}/>)}
+                {(actors && film && film.actors.length > 0) && actors.map((element, index) => <ActorCard
+                    key={"actor_card_" + index + "_" + element.name} role={film.actors[index].role} id={element.id}
+                    photo={element.photo}
+                    name={element.name} surname={element.surname}
+                    born={element.born}/>)}
             </RowCards>
             <Comments movieId={props.params.id}/>
         </>
