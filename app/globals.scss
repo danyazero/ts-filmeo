@@ -25,3 +25,7 @@ img{
 p{
   @apply dark:text-white text-secondaryLight lg:text-base text-xs;
 }
+
+form{
+  @apply flex flex-col gap-4 w-80;
+}

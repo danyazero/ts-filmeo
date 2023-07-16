@@ -11,9 +11,7 @@ export const Button: FC<IButton> = (props) => {
         event.preventDefault()
         props.link && push(props.link)
     }
-
-    console.log(props.disabled)
-
+    
     return (
         <>
             <button disabled={props.disabled} className={st.button} onClick={props.link ? onButtonClick : () => {}} type={props.link ? "button" : "submit"}>

@@ -1,0 +1,7 @@
+.auth{
+    @apply flex flex-col items-center justify-center h-[100vh];
+
+    .active{
+        @apply text-primary underline;
+    }
+}
