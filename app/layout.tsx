@@ -2,7 +2,7 @@ import './globals.scss'
 import {Outfit} from 'next/font/google'
 import React from "react";
 import Navbar from "@/widgets/Navbar/Navbar";
-import {NextAuthProvider} from "@/entities/NextAuthProvider/NextAuthProvider";
+import {NextAuthProvider} from "@/entities/NextAuthProvider";
 
 const inter = Outfit({subsets: ['latin']})
 

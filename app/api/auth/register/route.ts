@@ -1,6 +1,7 @@
 import crypto from "crypto";
 import {crossHeaders, openDb} from "@/app/api/database";
 import {NextResponse} from "next/server";
+import {IResponse} from "@/Models/Models";
 
 
 
@@ -13,15 +14,15 @@ export async function POST(req: Request) {
     if (passwordHash != null && body.email){
         const res = await db.run('INSERT OR IGNORE INTO users (name, email, password) VALUES (?, ?, ?);', body.name, body.email, passwordHash)
 
-        if (res.changes == 0) return NextResponse.json({text: "Looks like this account already exists."}, {
+        if (res.changes == 0) return NextResponse.json<IResponse>({additional: {text: "Looks like this account already exists.", code: 300}}, {
             status: 300, headers: crossHeaders
         })
-        if (res.changes == 1) return NextResponse.json({text: "Registration completed successfully"}, {
+        if (res.changes == 1) return NextResponse.json<IResponse>({additional: {text: "Registration completed successfully", code: 200}}, {
             status: 200, headers: crossHeaders
         })
     }
 
-    return NextResponse.json({text: "Not enough data"}, {
+    return NextResponse.json<IResponse>({additional: {text: "Not enough data", code: 300}}, {
         status: 300, headers: crossHeaders
     })
 }

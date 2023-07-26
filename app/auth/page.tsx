@@ -1,8 +1,8 @@
 "use client"
 import st from "./Auth.module.css"
-import {AuthorizationForm} from "@/widgets/AuthorizationForm/AuthorizationForm";
+import {AuthorizationForm} from "@/widgets/AuthorizationForm";
 import {useState} from "react";
-import {RegistrationForm} from "@/widgets/RegistrationForm/RegistrationForm";
+import {RegistrationForm} from "@/widgets/RegistrationForm";
 const AuthPage = () => {
     const [status, setStatus] = useState(false)
 

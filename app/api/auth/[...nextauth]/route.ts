@@ -22,6 +22,7 @@ export const authOptions: NextAuthOptions = {
             async authorize(credentials) {
                 const passwordHash = crypto.createHash('sha256').update(credentials!.password).digest('hex')
                 const db = await openDb()
+                console.log({email: credentials?.email, pass: credentials?.password})
 
                 if (passwordHash != null && credentials?.email){
                     const user = await db.get("SELECT id, name, email FROM users WHERE email = ? AND  password = ?", credentials.email, passwordHash)

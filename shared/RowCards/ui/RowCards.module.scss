@@ -1,0 +1,19 @@
+.moviesCards{
+  @apply flex flex-row gap-x-4 h-fit overflow-x-scroll overflow-y-hidden py-2;
+}
+
+.moviesCards::-webkit-scrollbar{
+  display: none;
+}
+
+.moviesCards{
+  scrollbar-width: none;
+}
+
+.moreButton{
+  @apply cursor-pointer;
+}
+
+.headerContainer{
+  @apply flex flex-row justify-between items-center;
+}

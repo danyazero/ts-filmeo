@@ -1,8 +1,6 @@
 import React, {FC} from 'react';
-import {Search} from "@/features/Search/Search";
-import {Pagination} from "@/features/Pagination/Pagination";
-import {IFilm} from "@/Models/Models";
-import {Genres} from "@/widgets/Genres/Genres";
+import {Search} from "@/features/Search";
+import {Genres} from "@/widgets/Genres";
 
 type Props = {
     params: {

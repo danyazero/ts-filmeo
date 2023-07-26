@@ -1,0 +1,7 @@
+.container{
+  @apply flex lg:flex-row gap-4 flex-col h-fit w-full;
+
+  .video{
+    @apply lg:w-4/6 w-full h-fit;
+  }
+}

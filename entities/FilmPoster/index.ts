@@ -1,0 +1,1 @@
+export {FilmPoster} from "./ui/FilmPoster"

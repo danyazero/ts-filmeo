@@ -1,0 +1,15 @@
+.container{
+  @apply lg:h-36 h-28 my-8;
+
+  .header{
+    @apply w-full flex flex-row justify-between px-3 items-center;
+
+    .movieName{
+      @apply text-white py-5 relative  left-3;
+    }
+
+    .saveButton{
+      @apply relative;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.views{
+  @apply flex flex-row gap-0.5 items-center;
+
+  .wiewsNumber{
+    @apply text-secondaryText;
+  }
+
+  .eye{
+    @apply w-[13px] h-[13px];
+  }
+}

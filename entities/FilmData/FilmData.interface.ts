@@ -5,5 +5,6 @@ export interface IFilmData{
     genre: string[],
     runtime: number,
     caption: string,
-    rating: number
+    rating: number,
+    views: number
 }

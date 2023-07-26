@@ -1,0 +1,1 @@
+export interface IMovieHeader {id: number, name: string, poster: string, cover: string}

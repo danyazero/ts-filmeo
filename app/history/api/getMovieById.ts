@@ -1,8 +1,19 @@
 import {element} from "prop-types";
-import {direction, myDirection} from "@/Models/Models";
+import {direction, MovieSchema, myDirection} from "@/Models/Models";
+import {z} from "zod";
+import {AdditionalSchema} from "@/entities/MovieCard/MovieCard.interface";
 
 export async function getMovieById(_data: {key: string, movies: string[]}){
+
+    const responseSchema = z.object({
+        data: z.array(MovieSchema),
+        additional: AdditionalSchema
+    })
+
     const params = _data.movies.map((element) => "id="+element)
     const response = await fetch(myDirection + '/movies?' + params.join("&"))
-    return response.json()
+
+    const data = await responseSchema.parseAsync(await response.json())
+
+    return data.data
 }

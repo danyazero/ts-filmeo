@@ -1,8 +1,7 @@
 'use client'
 import React, {FC} from 'react';
 import {GridCards} from "@/shared/GridCards/GridCards";
-import {RenderHistory} from "@/features/RenderHistory/RenderHistory";
-import {Button} from "@/shared/Button/Button";
+import {RenderHistory} from "@/features/RenderHistory";
 
 const Page: FC = () => {
 

@@ -1,6 +1,6 @@
 import {crossHeaders, openDb} from "@/app/api/database";
 import {NextResponse} from "next/server";
-import {IFilm} from "@/Models/Models";
+import {IFilm, IResponse} from "@/Models/Models";
 import {element} from "prop-types";
 
 
@@ -37,8 +37,8 @@ export async function GET(req: Request) {
     if (data) {
         data.forEach(element => element.actors = JSON.parse(element.actors))
         data.forEach(element => element.genre = JSON.parse(element.genre))
-        return NextResponse.json(data, {headers: crossHeaders})
+        return NextResponse.json<IResponse>({data, additional: {text: "Successful", code: 200}}, {headers: crossHeaders})
     }
 
-    return NextResponse.json({error: "Not founded movies"}, {headers: crossHeaders, status: 400})
+    return NextResponse.json<IResponse>({additional: {text: "Movie not found", code: 400}}, {headers: crossHeaders, status: 400})
 }

@@ -1,18 +1,18 @@
 'use client'
 import React, {FC} from 'react';
-import MovieCard from "@/entities/MovieCard/MovieCard";
-import st from "./SearchGrid.module.scss"
+import {MovieCard} from "@/entities/MovieCard";
 import {getSearchedMovies} from "./../api/getSearchedMovies";
-import {IFilm} from "@/Models/Models";
-import {Pagination} from "@/features/Pagination/Pagination";
+import {Pagination} from "@/features/Pagination";
 import useSWR from "swr";
-import {ISearchGrid} from "@/widgets/SearchGrid/ui/SearchGrid.interface";
+import {ISearchGrid} from "@/widgets/SearchGrid/model/SearchGrid.interface";
 import {GridCards} from "@/shared/GridCards/GridCards";
+import {IMovieCard} from "@/entities/MovieCard/MovieCard.interface";
 
 export const SearchGrid: FC<ISearchGrid> = (props) => {
 
-    let {data, isLoading} = useSWR<IFilm[]>({key: 'movies', params: props.params}, getSearchedMovies)
+    let {data, isLoading} = useSWR<IMovieCard[]>({key: 'movies', params: props.params}, getSearchedMovies)
 
+    console.log(data)
     return (
         <>
             <GridCards header={props.header}>

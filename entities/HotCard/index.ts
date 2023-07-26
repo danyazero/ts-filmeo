@@ -1,0 +1,1 @@
+export {HotCard} from "./ui/HotCard"
