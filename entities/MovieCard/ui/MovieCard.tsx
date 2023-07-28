@@ -4,13 +4,14 @@ import st from "./MovieCard.module.scss"
 import Image from "next/image";
 import Link from "next/link";
 import {Rating} from "@/shared/Rating/Rating";
+import {direction} from "@/Models/Models";
 
 export const MovieCard: FC<IMovieCard> = (props) => {
 
     return(
         <>
             <Link href={"/film/" + props.id} className={st.movieCard}>
-                <Image className={st.moviePoster} src={props.cover} alt={props.name} width={180} height={100}/>
+                <Image className={st.moviePoster} src={direction + props.cover} alt={props.name} width={180} height={100}/>
                 <div className={st.caption}>
                     <h3 className={st.movieName}>{props.name}</h3>
                     <div className={st.information}>

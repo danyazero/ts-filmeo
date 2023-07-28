@@ -1,5 +1,5 @@
 .container{
-  @apply flex lg:flex-row gap-4 flex-col h-fit w-full;
+  @apply flex lg:flex-row gap-4 flex-col h-fit w-full mb-4;
 
   .video{
     @apply lg:w-4/6 w-full h-fit;

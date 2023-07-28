@@ -25,7 +25,7 @@ export const authOptions: NextAuthOptions = {
                 console.log({email: credentials?.email, pass: credentials?.password})
 
                 if (passwordHash != null && credentials?.email){
-                    const user = await db.get("SELECT id, name, email FROM users WHERE email = ? AND  password = ?", credentials.email, passwordHash)
+                    const user = await db.get("SELECT id, name, email, image FROM users WHERE email = ? AND  password = ?", credentials.email, passwordHash)
                     console.log(user)
                     return user;
                 }

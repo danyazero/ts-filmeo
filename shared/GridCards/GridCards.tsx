@@ -4,10 +4,10 @@ export const GridCards: FC<{children: ReactNode, header: string}> = (props) => {
 
     return (
         <>
-            {props.children ? <><h2>{props.header}</h2>
+            {props.children ? <div className={st.cardsGridContainer}><h2 className={st.header}>{props.header}</h2>
             <div className={st.moviesCards}>
                 {props.children}
-            </div></> : <></>}
+            </div></div> : <></>}
         </>
     );
 }

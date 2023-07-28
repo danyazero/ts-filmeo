@@ -1,19 +1,23 @@
-.moviesCards{
-  @apply flex flex-row gap-x-4 h-fit overflow-x-scroll overflow-y-hidden py-2;
-}
+.cardsRowContainer{
+  @apply mt-8;
 
-.moviesCards::-webkit-scrollbar{
-  display: none;
-}
+  .headerContainer{
+    @apply flex flex-row justify-between items-center mb-3;
 
-.moviesCards{
-  scrollbar-width: none;
-}
+    .moreButton{
+      @apply cursor-pointer;
+    }
+  }
 
-.moreButton{
-  @apply cursor-pointer;
-}
+  .moviesCards{
+    @apply flex flex-row gap-x-4 h-fit overflow-x-scroll overflow-y-hidden py-2;
+  }
 
-.headerContainer{
-  @apply flex flex-row justify-between items-center;
+  .moviesCards::-webkit-scrollbar{
+    display: none;
+  }
+
+  .moviesCards{
+    scrollbar-width: none;
+  }
 }

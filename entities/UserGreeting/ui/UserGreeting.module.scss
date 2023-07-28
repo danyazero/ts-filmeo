@@ -1,0 +1,19 @@
+.userGreetingContainer{
+  @apply flex flex-row justify-between items-center bg-primary p-4 rounded-2xl;
+
+  .helloContainer{
+    @apply flex flex-row items-center;
+
+    .handWave{
+      @apply w-[45px] h-[45px] -rotate-12;
+    }
+
+    .helloTextContainer{
+      @apply ml-4;
+
+      h2, p{
+        @apply text-white;
+      }
+    }
+  }
+}

@@ -3,6 +3,8 @@ import st from "./MovieView.module.scss";
 import {IFilm} from "@/Models/Models";
 import {HotCard} from "@/entities/HotCard";
 import {FilmData} from "@/entities/FilmData";
+import {RowCards} from "@/shared/RowCards";
+import {Button} from "@/shared/Button/Button";
 export const MovieView: FC<IFilm> = async (props) => {
     return (
         <>
@@ -16,6 +18,9 @@ export const MovieView: FC<IFilm> = async (props) => {
                               genre={props.genre} runtime={props.runtime} rating={props.rating}/>
                 </HotCard>
             </div>
+            <RowCards>
+                {props.genre.map((element, index) => <Button link={'/search/1/' + element.toLowerCase()} title={element}/>)}
+            </RowCards>
         </>
     );
 }

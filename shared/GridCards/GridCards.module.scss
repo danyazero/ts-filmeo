@@ -1,3 +1,11 @@
-.moviesCards{
-  @apply grid lg:grid-cols-lg grid-cols-sm gap-y-4 justify-between;
+
+.cardsGridContainer{
+  @apply mt-8;
+
+  .header{
+    @apply mb-4;
+  }
+  .moviesCards{
+    @apply grid pt-2 lg:grid-cols-lg grid-cols-sm gap-y-6 justify-between;
+  }
 }

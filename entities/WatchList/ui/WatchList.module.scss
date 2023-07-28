@@ -1,0 +1,11 @@
+.watchListContainer{
+  @apply flex flex-row justify-between p-4 items-center dark:bg-secondaryLight bg-secondaryLightDark rounded-2xl;
+
+  .main{
+    @apply flex flex-row gap-4 items-center;
+
+    .icon{
+      @apply w-[35px] h-[35px] dark:invert;
+    }
+  }
+}

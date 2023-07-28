@@ -1,14 +1,14 @@
  .navbar{
-   @apply flex fixed lg:left-0 lg:top-0 bottom-0 lg:flex-col flex-row gap-6 dark:bg-navDark bg-nav lg:p-4 p-2 lg:justify-between justify-center lg:h-full lg:w-fit w-full h-fit shadow-xl z-40;
+   @apply flex fixed lg:left-0 lg:top-0 bottom-0 lg:flex-col flex-row gap-6 dark:bg-secondaryLight bg-nav lg:p-4 p-2 lg:justify-between justify-center lg:h-full lg:w-fit w-full h-fit shadow-xl z-40;
 
    .items{
      @apply flex lg:flex-col flex-row gap-6;
    }
    .link{
-     @apply transition-colors hover:dark:bg-secondaryLight hover:bg-secondaryLightDark p-5 rounded-2xl;
+     @apply transition-colors w-fit h-fit m-5;
    }
    .active{
-     @apply dark:bg-secondaryLight bg-secondaryLightDark p-5 rounded-2xl;
+     filter: drop-shadow(0 0 15px rgba(243, 117, 21, 1))drop-shadow(0 0 15px rgba(243, 117, 21, 1)) drop-shadow(0 0 15px rgba(243, 117, 21, 1));
    }
 
    .icon{

@@ -8,7 +8,7 @@ import {getMovieData} from "@/app/film/[id]/api/getMovieData";
 import {MovieHeader} from "@/widgets/MovieHeader";
 import {MovieView} from "@/widgets/MovieView";
 import {MovieActors} from "@/widgets/MovieActors/ui/MovieActors";
-import {MarkView} from "@/features/MarkView";
+import {MarkMovieView} from "../../../features/MarkMovieView";
 
 type Props = {
     params: {
@@ -28,7 +28,7 @@ export async function generateStaticParams() {
     const movies: IFilm[] = await getAllMovies()
 
     return movies.map((movie) => ({
-        slug: movie.id
+        id: movie.id
     }))
 }
 
@@ -39,7 +39,7 @@ export default async function FilmPage(props: Props) {
         <>
             <BackButton/>
             <SaveHistory movieId={props.params.id}/>
-            <MarkView id={props.params.id}/>
+            <MarkMovieView id={props.params.id}/>
             <MovieHeader id={film.id} name={film.name} poster={film.poster} cover={film.cover}/>
             <MovieView {...film}/>
             <MovieActors roles={film.actors}/>

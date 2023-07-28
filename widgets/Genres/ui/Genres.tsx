@@ -28,7 +28,7 @@ export const Genres: FC = () => {
                     <GetEmoji unicode={"1F622"}/>
                 </Button>
 
-                <Button title={"History"} link={"History"}>
+                <Button title={"History"} link={linkGenerator("History")}>
                     <GetEmoji unicode={"1F4D7"}/>
                 </Button>
 

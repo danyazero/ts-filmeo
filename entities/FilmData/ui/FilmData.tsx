@@ -7,7 +7,7 @@ import {Views} from "@/shared/Views";
 export const FilmData: FC<IFilmData> = (props) => {
     return (
         <>
-            <h2>{props.name}</h2>
+            <h2 style={{color: "#000"}}>{props.name}</h2>
             <table className={st.mainData}>
                 <tbody>
                 <tr>

@@ -1,6 +1,6 @@
 import {myDirection} from "@/Models/Models";
 
-export async function markViewReq(id: string){
+export async function MarkMovieViewReq(id: string){
     const response = await fetch(myDirection + '/movies/' + id, {
         method: 'PUT',
         headers: {
