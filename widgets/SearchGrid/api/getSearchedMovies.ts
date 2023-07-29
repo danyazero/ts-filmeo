@@ -1,17 +1,17 @@
 import {myDirection} from "@/Models/Models";
 import {AdditionalSchema, MovieCardSchema} from "@/entities/MovieCard/MovieCard.interface";
 import {z} from "zod";
+import {ActorSchema} from "@/entities/ActorCard/ActorCard.interface";
 
-export const getSearchedMovies = async (_data: {key: string, params: string}) => {
+export const getSearchedMovies = async (params: string) => {
 
     const searchResponseSchema = z.object({
-        data: z.array(MovieCardSchema),
+        data: z.object({movies: z.array(MovieCardSchema), actors: z.array(ActorSchema)}),
         additional: AdditionalSchema
     })
 
-    const response = await fetch(myDirection + `/movies?${_data.params}&_limit=9`)
+    const response = await fetch(myDirection + `/movies?${params}`)
 
     const data = await searchResponseSchema.parseAsync(await response.json())
-
-    return data.data
+    return data
 }

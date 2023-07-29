@@ -1,5 +1,7 @@
 import {IComment} from "@/entities/Comment/Comment.interface";
 import {z} from "zod";
+import {IActorCard} from "@/entities/ActorCard/ActorCard.interface";
+import {IMovieCard} from "@/entities/MovieCard/MovieCard.interface";
 
 export interface IFilm {
     id: number,
@@ -50,6 +52,11 @@ export interface IAdditional{
 
 export interface IResponse{
     data?: any,
+    additional: IAdditional
+}
+
+export interface ISearchReq{
+    data: {movies: IMovieCard[], actors: IActorCard[]},
     additional: IAdditional
 }
 

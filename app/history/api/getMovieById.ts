@@ -1,12 +1,12 @@
 import {element} from "prop-types";
 import {direction, MovieSchema, myDirection} from "@/Models/Models";
 import {z} from "zod";
-import {AdditionalSchema} from "@/entities/MovieCard/MovieCard.interface";
+import {AdditionalSchema, MovieCardSchema} from "@/entities/MovieCard/MovieCard.interface";
 
 export async function getMovieById(_data: {key: string, movies: string[]}){
 
     const responseSchema = z.object({
-        data: z.array(MovieSchema),
+        data: z.object({movies: z.array(MovieCardSchema)}),
         additional: AdditionalSchema
     })
 
@@ -15,5 +15,5 @@ export async function getMovieById(_data: {key: string, movies: string[]}){
 
     const data = await responseSchema.parseAsync(await response.json())
 
-    return data.data
+    return data.data.movies
 }

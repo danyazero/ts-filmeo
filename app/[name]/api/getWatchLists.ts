@@ -1,14 +1,14 @@
 import {z} from "zod";
-import {WatchListSchema} from "@/app/[name]/model/User.interface";
+import {UserSchema, WatchListSchema} from "@/app/[name]/model/User.interface";
 import {AdditionalSchema} from "@/entities/MovieCard/MovieCard.interface";
 import {myDirection} from "@/Models/Models";
 
-export async function getWatchList(name: string, key: string){
+export async function getWatchLists(name: string){
     const responseSchema = z.object({
-        data: WatchListSchema.optional(),
+        data: z.array(WatchListSchema).optional(),
         additional: AdditionalSchema
     })
-    const response = await fetch(myDirection + '/watch/' + name + '/' + key, {next: {revalidate: 120}})
+    const response = await fetch(myDirection + '/watch/' + name, {next: {revalidate: 120}})
 
     return await responseSchema.parseAsync(await response.json())
 }

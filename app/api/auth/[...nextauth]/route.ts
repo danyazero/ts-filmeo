@@ -2,6 +2,7 @@ import NextAuth, {NextAuthOptions} from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import crypto from "crypto"
 import {openDb} from "@/app/api/database";
+import {getHash} from "@/Models/utils/getHash";
 
 export const authOptions: NextAuthOptions = {
     session: {
@@ -20,7 +21,7 @@ export const authOptions: NextAuthOptions = {
                 password: { label: "Password", type: "password", required: true },
             },
             async authorize(credentials) {
-                const passwordHash = crypto.createHash('sha256').update(credentials!.password).digest('hex')
+                const passwordHash = getHash(credentials!.password)
                 const db = await openDb()
                 console.log({email: credentials?.email, pass: credentials?.password})
 

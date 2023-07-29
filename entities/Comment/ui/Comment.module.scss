@@ -1,6 +1,6 @@
 .comment{
 
-  @apply flex flex-col gap-2 w-full dark:bg-secondaryLight bg-secondaryLightDark mb-2 p-5 rounded-2xl;
+  @apply flex flex-col gap-2 w-full dark:bg-secondaryLightDark bg-secondaryLight mb-2 p-5 rounded-2xl;
 
   .username{
     @apply text-xl underline;

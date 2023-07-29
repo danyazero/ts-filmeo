@@ -1,6 +1,7 @@
 import {direction, IFilm, MovieSchema, myDirection} from "@/Models/Models";
 import {z} from "zod";
-import {AdditionalSchema} from "@/entities/MovieCard/MovieCard.interface";
+import {AdditionalSchema, MovieCardSchema} from "@/entities/MovieCard/MovieCard.interface";
+import {ActorSchema} from "@/entities/ActorCard/ActorCard.interface";
 
 export async function getMovies(data: { url?: string, page: string }) {
 
@@ -16,7 +17,7 @@ export async function getMovies(data: { url?: string, page: string }) {
 export async function getAllMovies() {
 
     const responseSchema = z.object({
-        data: z.array(MovieSchema),
+        data: z.object({movies: z.array(MovieSchema)}),
         additional: AdditionalSchema
     })
 
@@ -28,7 +29,7 @@ export async function getAllMovies() {
 
     const data = await responseSchema.parseAsync(await response.json())
 
-    return data.data
+    return data.data.movies
 }
 
 export async function getSearchedMovies(params: string) {

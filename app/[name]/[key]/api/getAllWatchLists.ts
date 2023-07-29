@@ -8,7 +8,7 @@ export async function getAllWatchListsReq(){
         data: WatchListSchema.array(),
         additional: AdditionalSchema
     })
-    const response = await fetch(myDirection + '/users/watchs', {next: {revalidate: 120}})
+    const response = await fetch(myDirection + '/watch', {next: {revalidate: 120}})
 
     const data =  await responseSchema.parseAsync(await response.json())
 

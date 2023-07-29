@@ -1,7 +1,6 @@
 import {crossHeaders, openDb} from "@/app/api/database";
 import {NextResponse} from "next/server";
-import {IFilm, IResponse} from "@/Models/Models";
-import {element} from "prop-types";
+import {IResponse} from "@/Models/Models";
 
 async function getSearched(ids?: string[]) {
     const db = await openDb()

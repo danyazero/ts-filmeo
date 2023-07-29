@@ -12,6 +12,9 @@ import {WatchList} from "@/entities/WatchList";
 import {direction, IFilm} from "@/Models/Models";
 import {getAllMovies} from "@/Models/api/service";
 import {getAllUsers} from "@/app/[name]/api/getAllUsers";
+import {CreateWatchList} from "@/features/CreateWatchList";
+import {getWatchLists} from "@/app/[name]/api/getWatchLists";
+import {getAllWatchListsReq} from "@/app/[name]/[key]/api/getAllWatchLists";
 
 type Props = {
     params: {
@@ -19,44 +22,26 @@ type Props = {
     }
 }
 
-export async function generateMetadata(params: Props){
-
-    return{
-        title: "Profile | Filmeo"
-    }
-}
-
 export async function generateStaticParams() {
-    const users = await getAllUsers()
+    const users = await getAllWatchListsReq()
 
     return users.map((user) => ({
-        name: user.name
+        name: user.user
     }))
 }
 
 const UserProfilePage: FC<Props> = async (props) => {
 
-    const {data, additional} = await getUser(props.params.name)
+    const {data, additional} = await getWatchLists(props.params.name)
     const session = await getServerSession(authOptions)
     const isCurrentUser = session?.user?.name == props.params.name
 
     return (
         <>
-            {(session?.user?.name && isCurrentUser) ? <UserGreeting name={session.user.name}/> : <></>}
-
             {data && additional.code == 200 ? <>
 
-                <div className={"flex flex-row gap-4 items-center py-4"}>
-                    <Image className={"w-[50px] h-[50px] rounded-2xl"} src={direction + data.user.image} alt={data.user.name} width={50} height={50}/>
-                    <div>
-                        <h2>{data.user.name}</h2>
-                        <p>{data.user.email}</p>
-                    </div>
-                </div>
-
-
-
-                {data.watchLists ? data.watchLists.map((element, index) => <WatchList key={'watchlist_'+index} views={element.views} name={element.name} length={element.movies.length} link={'/' + element.user + '/' + element.key}/>) : <></>}
+                {(session?.user?.name && isCurrentUser) ? <CreateWatchList/> : <></>}
+                {data ? data.map((element, index) => <WatchList key={'watchlist_'+index} views={element.views} name={element.name} length={element.movies.length} link={'/' + element.user + '/' + element.key}/>) : <></>}
 
             </> : <>
             <Message text={additional.text} error={true}/>

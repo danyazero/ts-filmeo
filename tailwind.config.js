@@ -14,20 +14,16 @@ module.exports = {
       maxWidth: {
         'lgp': '26rem',
       },
-      dropShadow: {
-        'fl': '3px 3px 10px rgba(243, 117, 21, 1)'
-      },
       colors: {
         primary: "#F37515",
         // secondaryDark: "#1C2024",
         secondaryDark: "#100e1a",
-        secondary: "#fff",
+        secondary: "#E3F1FC",
         // secondaryLight: "#272c31",
-        secondaryLight: "#1f1b2e",
-        secondaryLightDark: "#eeeeee",
+        secondaryLightDark: "#1f1b2e",
+        secondaryLight: "#D0E1F9",
         secondaryText: "#606366",
-        nav: "#e7e7e7",
-        navDark: "#1f2426",
+        nav: "#D0E1F9",
       },
     },
   },

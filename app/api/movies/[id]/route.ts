@@ -1,6 +1,6 @@
 import {openDb} from "@/app/api/database";
+import {IResponse} from "@/Models/Models";
 import {NextResponse} from "next/server";
-import {IFilm, IResponse} from "@/Models/Models";
 
 
 export async function GET(req: Request, {params}: { params: { id: string } }) {

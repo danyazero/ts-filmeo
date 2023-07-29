@@ -2,13 +2,14 @@ import crypto from "crypto";
 import {crossHeaders, openDb} from "@/app/api/database";
 import {NextResponse} from "next/server";
 import {IResponse} from "@/Models/Models";
+import {getHash} from "@/Models/utils/getHash";
 
 
 
 export async function POST(req: Request) {
     const body = await req.json()
     console.log(body)
-    const passwordHash = crypto.createHash('sha256').update(body.password).digest('hex')
+    const passwordHash = getHash(body.password)
     const db = await openDb()
 
     if (passwordHash != null && body.email){

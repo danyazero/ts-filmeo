@@ -19,7 +19,7 @@ export const MovieView: FC<IFilm> = async (props) => {
                 </HotCard>
             </div>
             <RowCards>
-                {props.genre.map((element, index) => <Button link={'/search/1/' + element.toLowerCase()} title={element}/>)}
+                {props.genre.map((element, index) => <Button key={'movie_genre_' + index} link={'/search/1/' + element.toLowerCase()} title={element}/>)}
             </RowCards>
         </>
     );

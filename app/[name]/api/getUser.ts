@@ -5,7 +5,7 @@ import {UserSchema, WatchListSchema} from "@/app/[name]/model/User.interface";
 
 export async function getUser(name: string) {
     const responseSchema = z.object({
-        data: z.object({user: UserSchema, watchLists: z.array(WatchListSchema).optional()}).optional(),
+        data: UserSchema.optional(),
         additional: AdditionalSchema
     })
     const response = await fetch(myDirection + '/users/' + name, {next: {revalidate: 120}})

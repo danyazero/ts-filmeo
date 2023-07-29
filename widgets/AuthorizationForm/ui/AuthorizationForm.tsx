@@ -8,6 +8,7 @@ import {signIn} from "next-auth/react";
 import crypto from "crypto";
 import {z} from "zod";
 import {FormControl} from "@/entities/FormControl";
+import {getHash} from "@/Models/utils/getHash";
 
 export const AuthorizationForm = () => {
     const [email, setEmail] = useState<string>("")
@@ -35,7 +36,7 @@ export const AuthorizationForm = () => {
             setError(validateAuthForm.error.format())
         } else {
             setError({_errors: []})
-            const passwordHash = crypto.createHash('sha256').update(data.password).digest('hex')
+            const passwordHash = getHash(data.password)
             const authResult = await signIn("credentials", {
                 email: data.email,
                 password: passwordHash,

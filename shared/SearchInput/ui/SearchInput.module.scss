@@ -6,11 +6,11 @@
   @apply flex flex-col gap-2;
 
   .searchInput{
-    @apply px-4 py-3 w-full rounded-2xl dark:bg-secondaryLight bg-secondaryLightDark text-secondaryText outline-none;
+    @apply px-4 py-3 w-full rounded-2xl dark:bg-secondaryLightDark bg-secondaryLight text-secondaryText outline-none;
   }
 
   .searchButton{
-    @apply dark:bg-secondaryLight bg-secondaryLightDark py-4 px-5 rounded-2xl hover:opacity-90 transition-colors;
+    @apply dark:bg-secondaryLightDark bg-secondaryLight py-4 px-5 rounded-2xl hover:opacity-90 transition-colors;
 
     .searchIcon{
       @apply w-5 h-5 fill-white;

@@ -1,0 +1,8 @@
+
+.createWatchListContainer {
+  @apply mt-8 mb-4;
+
+  .form {
+    @apply flex flex-row gap-4 rounded-2xl w-full mt-4;
+  }
+}

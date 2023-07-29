@@ -28,7 +28,7 @@ export async function generateStaticParams() {
     const movies: IFilm[] = await getAllMovies()
 
     return movies.map((movie) => ({
-        id: movie.id
+        id: movie.id.toString()
     }))
 }
 

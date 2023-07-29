@@ -2,7 +2,7 @@ import React, {FC, ReactNode} from 'react';
 import st from "./RowCards.module.scss"
 import {MoreButton} from "@/shared/moreButton/moreButton";
 
-export const RowCards: FC<{children: ReactNode, link?: string, header?: string}> = async (props) => {
+export const RowCards: FC<{children: ReactNode, link?: string, header?: string}> = (props) => {
 
     return (
         <>

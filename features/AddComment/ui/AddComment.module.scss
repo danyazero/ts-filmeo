@@ -1,3 +1,7 @@
-.addComment{
-  @apply flex w-full flex-row gap-5 py-5;
+.addCommentContainer{
+  @apply mb-4;
+
+  .addComment{
+    @apply flex w-full flex-row gap-5 py-5;
+  }
 }

@@ -13,7 +13,6 @@ export const AddComment: FC<{movieId: string}> = (props) => {
     const [success, setSuccess] = useState<IAdditional>()
     const { data: session } = useSession();
     async function addCommentSubmit(event: React.FormEvent<HTMLFormElement>){
-        console.log("add comment")
         event.isDefaultPrevented()
         event.preventDefault()
 
@@ -25,12 +24,12 @@ export const AddComment: FC<{movieId: string}> = (props) => {
     }
 
  return (
-  <>
+  <div className={st.addCommentContainer}>
     <form className={st.addComment} onSubmit={addCommentSubmit}>
         <Input value={comment} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setComment(event.target.value)} placeholder={"Share your opinion"}/>
         <Button disabled={!session?.user?.name} title={"Add"}/>
     </form>
       {success && <Message text={success.text} error={success.code != 200}/>}
-  </>
+  </div>
  );
 }
