@@ -1,10 +1,11 @@
 import React, {FC} from 'react';
 import {FilmPoster} from "@/entities/FilmPoster";
 import st from "./MovieHeader.module.scss";
-import {SaveMovie} from "@/features/SaveMovie";
 import {IMovieHeader} from "@/widgets/MovieHeader/model/MovieHeader.interface";
+import {SaveButton} from "../../../features/SaveButton";
 
 export const MovieHeader: FC<IMovieHeader> = (props) => {
+    console.log("render 2")
     return (
         <>
             <div className={st.container}>
@@ -12,7 +13,7 @@ export const MovieHeader: FC<IMovieHeader> = (props) => {
                     <div className={st.header}>
                         <h2 className={st.movieName}>{props.name}</h2>
                         <div className={st.saveButton}>
-                            <SaveMovie/>
+                             <SaveButton/>
                         </div>
                     </div>
                 </FilmPoster>

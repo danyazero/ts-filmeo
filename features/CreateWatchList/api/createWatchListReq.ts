@@ -1,9 +1,10 @@
 import {myDirection} from "@/Models/Models";
 
-export async function createWatchListReq(name: string, user: string){
-    const response = await fetch(myDirection + '/users/' + user, {
+export async function createWatchListReq(index: number, name: string, user: string){
+    const response = await fetch(myDirection + '/watch/' + user, {
         method: 'POST',
         body: JSON.stringify({
+            index,
             name
         }),
         headers: {

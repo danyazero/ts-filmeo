@@ -9,14 +9,12 @@ import {direction} from "@/Models/Models";
 export const FilmPoster: FC<IFilmPoster & { large: boolean }> = (props) => {
     return (
         <div className={st.recommendedMovie}>
-            <Link href={'/film/' + props.id}>
                 <Image className={st.cover} src={direction + props.cover} width={300} height={160} alt={props.name}/>
                 <div className={st.infoBlock}>
                     <Image className={st.poster} src={direction + imageSizeSelector(props.poster, props.large)} alt={props.name}
                            height={160} width={80}/>
                     {props.children}
                 </div>
-            </Link>
         </div>
     );
 }

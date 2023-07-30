@@ -9,6 +9,8 @@ import {MovieHeader} from "@/widgets/MovieHeader";
 import {MovieView} from "@/widgets/MovieView";
 import {MovieActors} from "@/widgets/MovieActors/ui/MovieActors";
 import {MarkMovieView} from "../../../features/MarkMovieView";
+import {getServerSession} from "next-auth";
+import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 
 type Props = {
     params: {
@@ -34,7 +36,7 @@ export async function generateStaticParams() {
 
 export default async function FilmPage(props: Props) {
     let film: IFilm = await getMovieData(props.params.id);
-
+    const session = await getServerSession(authOptions)
     return (
         <>
             <BackButton/>

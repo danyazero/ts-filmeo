@@ -4,7 +4,8 @@ export interface IWatchList{
     id: number,
     user: number,
     name: string,
-    movies: string
+    movies: string,
+    views: number
 }
 
 export const WatchListSchema = z.object({

@@ -39,8 +39,6 @@ const UserProfilePage: FC<Props> = async (props) => {
     return (
         <>
             {data && additional.code == 200 ? <>
-
-                {(session?.user?.name && isCurrentUser) ? <CreateWatchList/> : <></>}
                 {data ? data.map((element, index) => <WatchList key={'watchlist_'+index} views={element.views} name={element.name} length={element.movies.length} link={'/' + element.user + '/' + element.key}/>) : <></>}
 
             </> : <>

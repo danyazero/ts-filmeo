@@ -1,3 +1,3 @@
 export interface ISaveButton{
-    onClick(event: any): void
+    user: string
 }
