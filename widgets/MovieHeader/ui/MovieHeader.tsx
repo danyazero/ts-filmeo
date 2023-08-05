@@ -2,10 +2,9 @@ import React, {FC} from 'react';
 import {FilmPoster} from "@/entities/FilmPoster";
 import st from "./MovieHeader.module.scss";
 import {IMovieHeader} from "@/widgets/MovieHeader/model/MovieHeader.interface";
-import {SaveButton} from "../../../features/SaveButton";
+import {SaveButton} from "@/features/SaveButton";
 
 export const MovieHeader: FC<IMovieHeader> = (props) => {
-    console.log("render 2")
     return (
         <>
             <div className={st.container}>

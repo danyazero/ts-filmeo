@@ -18,7 +18,7 @@ export const CreateWatchList: FC<{id: string}> = (props) => {
     const {data: session} = useSession()
 
     const formSchema = z.object({
-        name: z.string().max(9, {message: "Maximum len 9"}).min(4,{message: "Minimum len 4"})
+        name: z.string().max(15, {message: "Maximum len 15"}).min(4,{message: "Minimum len 4"})
     })
 
     async function createWatchListHandler(event: React.FormEvent<HTMLFormElement>){

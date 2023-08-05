@@ -11,6 +11,7 @@ import {MovieActors} from "@/widgets/MovieActors/ui/MovieActors";
 import {MarkMovieView} from "../../../features/MarkMovieView";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/app/api/auth/[...nextauth]/route";
+import {SeasonsList} from "@/widgets/SeasonsList/ui/SeasonsList";
 
 type Props = {
     params: {
@@ -45,6 +46,7 @@ export default async function FilmPage(props: Props) {
             <MovieHeader id={film.id} name={film.name} poster={film.poster} cover={film.cover}/>
             <MovieView {...film}/>
             <MovieActors roles={film.actors}/>
+            <SeasonsList id={props.params.id}/>
 
 
 

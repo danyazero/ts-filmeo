@@ -1,0 +1,11 @@
+.dropdownList{
+  @apply hidden flex-col gap-1 ml-4 divide-y dark:divide-secondaryLightDark divide-secondaryLight;
+}
+
+.button{
+  @apply flex flex-row items-center gap-2 p-4 dark:bg-secondaryLightDark bg-secondaryLight rounded-2xl;
+}
+
+.icon{
+  @apply w-[20px] h-[20px];
+}
