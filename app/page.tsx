@@ -13,6 +13,7 @@ import {getPopularMovie} from "@/Models/api/getPopularMovie";
 import {UserGreeting} from "@/entities/UserGreeting";
 import React from "react";
 import Link from "next/link";
+import {PopularWatchLists} from "@/widgets/PopularWatchLists/ui/PopularWatchLists";
 
 export default async function Home() {
 
@@ -35,6 +36,7 @@ export default async function Home() {
             </div>
             <MoviesRow header={"Fantasy"} category={"fantasy"}
                        params={searchEngine({_page: '1', genre_like: "fantasy"})}/>
+            <PopularWatchLists/>
             <MoviesRow header={"Drama"} category={"drama"} params={searchEngine({_page: '1', genre_like: "drama"})}/>
             <RowCards link={'/history'} header={"History"}>
                 <RenderHistory/>

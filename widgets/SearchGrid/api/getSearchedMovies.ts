@@ -1,4 +1,4 @@
-import {myDirection} from "@/Models/Models";
+import {myDirectionApi} from "@/Models/Models";
 import {AdditionalSchema, MovieCardSchema} from "@/entities/MovieCard/MovieCard.interface";
 import {z} from "zod";
 import {ActorSchema} from "@/entities/ActorCard/ActorCard.interface";
@@ -10,7 +10,7 @@ export const getSearchedMovies = async (params: string) => {
         additional: AdditionalSchema
     })
 
-    const response = await fetch(myDirection + `/movies?${params}`)
+    const response = await fetch(myDirectionApi + `/movies?${params}`)
 
     const data = await searchResponseSchema.parseAsync(await response.json())
     return data

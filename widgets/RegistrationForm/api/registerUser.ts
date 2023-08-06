@@ -1,10 +1,10 @@
 import crypto from "crypto";
-import {myDirection} from "@/Models/Models";
+import {myDirectionApi} from "@/Models/Models";
 import {getHash} from "@/Models/utils/getHash";
 
 export     async function registerUser(name: string, email: string, password: string){
     const passwordHash = getHash(password)
-    const response = await fetch(myDirection + '/auth/register', {
+    const response = await fetch(myDirectionApi + '/auth/register', {
         method: 'POST',
         body: JSON.stringify({
             name,

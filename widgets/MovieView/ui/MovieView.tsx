@@ -5,6 +5,7 @@ import {HotCard} from "@/entities/HotCard";
 import {FilmData} from "@/entities/FilmData";
 import {RowCards} from "@/shared/RowCards";
 import {Button} from "@/shared/Button/Button";
+import {MovieRating} from "@/entities/MovieRating";
 export const MovieView: FC<IFilm> = async (props) => {
     return (
         <>
@@ -18,9 +19,12 @@ export const MovieView: FC<IFilm> = async (props) => {
                               genre={props.genre} runtime={props.runtime} rating={props.rating}/>
                 </HotCard>
             </div>
-            <RowCards>
-                {props.genre.map((element, index) => <Button key={'movie_genre_' + index} link={'/search/1/' + element.toLowerCase()} title={element}/>)}
-            </RowCards>
+            <div className={st.optionsRow}>
+                <RowCards>
+                    {props.genre.map((element, index) => <Button key={'movie_genre_' + index} link={'/search/1/' + element.toLowerCase()} title={element}/>)}
+                </RowCards>
+                <MovieRating movie={props.name} rating={props.rating} ratings={2311} rated={false}/>
+            </div>
         </>
     );
 }

@@ -5,6 +5,7 @@ export interface IWatchList{
     user: number,
     name: string,
     movies: string,
+    public: string,
     views: number
 }
 
@@ -13,6 +14,7 @@ export const WatchListSchema = z.object({
     user: z.string(),
     name: z.string(),
     movies: z.array(z.number()),
+    public: z.literal("true").or(z.literal("false")),
     views: z.number()
 })
 

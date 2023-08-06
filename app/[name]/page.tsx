@@ -15,6 +15,7 @@ import {getAllUsers} from "@/app/[name]/api/getAllUsers";
 import {CreateWatchList} from "@/features/CreateWatchList";
 import {getWatchLists} from "@/app/[name]/api/getWatchLists";
 import {getAllWatchListsReq} from "@/app/[name]/[key]/api/getAllWatchLists";
+import {VerticalCards} from "@/shared/VerticalCards";
 
 type Props = {
     params: {
@@ -39,7 +40,11 @@ const UserProfilePage: FC<Props> = async (props) => {
     return (
         <>
             {data && additional.code == 200 ? <>
-                {data ? data.map((element, index) => <WatchList key={'watchlist_'+index} views={element.views} name={element.name} length={element.movies.length} link={'/' + element.user + '/' + element.key}/>) : <></>}
+                {data ? <VerticalCards>{data
+                    .map((element, index) => <WatchList key={'watchlist_' + index} views={element.views}
+                                                        name={element.name} length={element.movies.length}
+                                                        link={'/' + element.user + '/' + element.key}/>)
+                }</VerticalCards> : <></>}
 
             </> : <>
             <Message text={additional.text} error={true}/>

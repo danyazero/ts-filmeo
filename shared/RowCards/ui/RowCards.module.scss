@@ -1,8 +1,8 @@
 .cardsRowContainer{
-  @apply mt-8;
+  @apply w-full;
 
   .headerContainer{
-    @apply flex flex-row justify-between items-center mb-3;
+    @apply flex flex-row justify-between items-center mb-3 mt-8;
 
     .moreButton{
       @apply cursor-pointer;

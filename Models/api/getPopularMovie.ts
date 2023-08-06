@@ -1,4 +1,4 @@
-import {MovieSchema, myDirection} from "@/Models/Models";
+import {MovieSchema, myDirectionApi} from "@/Models/Models";
 import {z} from "zod";
 import {AdditionalSchema} from "@/entities/MovieCard/MovieCard.interface";
 
@@ -7,7 +7,7 @@ export async function getPopularMovie(){
         data: MovieSchema,
         additional: AdditionalSchema
     })
-    const response = await fetch(myDirection + '/movies/top', {next: {revalidate: 120}})
+    const response = await fetch(myDirectionApi + '/movies/top', {next: {revalidate: 120}})
 
     const data = await responseSchema.parseAsync(await response.json())
 

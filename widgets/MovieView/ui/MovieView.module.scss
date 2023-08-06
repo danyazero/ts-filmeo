@@ -1,7 +1,11 @@
 .container{
-  @apply flex lg:flex-row gap-4 flex-col h-fit w-full mb-4;
+  @apply flex lg:flex-row gap-4 flex-col h-fit w-full my-6 items-center;
 
   .video{
     @apply lg:w-4/6 w-full h-fit;
   }
+}
+
+.optionsRow{
+  @apply flex lg:flex-row gap-4 flex-col h-fit w-full mb-4;
 }

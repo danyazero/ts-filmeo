@@ -9,8 +9,8 @@ export const WatchList: FC<IWatchList> = (props) => {
         <>
             <Link href={props.link} className={st.watchListContainer}>
                 <div className={st.main}>
-                    <Image className={st.icon} src={'/watchlist.svg'} alt={'watchlist'} width={35} height={35}/>
-                    <h2>{props.name}</h2>
+                    <Image className={st.icon} src={'/watchlist.svg'} alt={'watchlist'} width={25} height={25}/>
+                    <h3>{props.name}</h3>
                 </div>
                 <p>[{props.length}] - {props.views} views</p>
             </Link>

@@ -62,4 +62,5 @@ export interface ISearchReq{
 
 const host = '192.168.0.70'
 export const direction: string = `http://${host}:3303`
-export const myDirection: string = `http://${host}:3000/api`
+export const myDirectionApi: string = `http://${host}:3000/api`
+export const myDirection: string = `http://${host}:3000`

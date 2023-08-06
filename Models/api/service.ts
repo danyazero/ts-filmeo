@@ -1,11 +1,11 @@
-import {direction, IFilm, MovieSchema, myDirection} from "@/Models/Models";
+import {direction, IFilm, MovieSchema, myDirectionApi} from "@/Models/Models";
 import {z} from "zod";
 import {AdditionalSchema, MovieCardSchema} from "@/entities/MovieCard/MovieCard.interface";
 import {ActorSchema} from "@/entities/ActorCard/ActorCard.interface";
 
 export async function getMovies(data: { url?: string, page: string }) {
 
-    const response = await fetch(myDirection + `/movies?&_page=${data.page}`, {
+    const response = await fetch(myDirectionApi + `/movies?&_page=${data.page}`, {
         next: {
             revalidate: 120
         }
@@ -21,7 +21,7 @@ export async function getAllMovies() {
         additional: AdditionalSchema
     })
 
-    const response = await fetch(myDirection + `/movies`, {
+    const response = await fetch(myDirectionApi + `/movies`, {
         next: {
             revalidate: 120
         }
@@ -34,7 +34,7 @@ export async function getAllMovies() {
 
 export async function getSearchedMovies(params: string) {
 
-    const response = await fetch(myDirection + `/movies?${params}`)
+    const response = await fetch(myDirectionApi + `/movies?${params}`)
 
     return response.json()
 }

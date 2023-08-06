@@ -1,4 +1,4 @@
-import {direction, IRole, myDirection} from "@/Models/Models";
+import {direction, IRole, myDirectionApi} from "@/Models/Models";
 import {z} from "zod";
 import {ActorSchema} from "@/entities/ActorCard/ActorCard.interface";
 import {AdditionalSchema} from "@/entities/MovieCard/MovieCard.interface";
@@ -12,7 +12,7 @@ export async function getMovieActors(roles: IRole[]) {
         additional: AdditionalSchema
     })
 
-    const ref = myDirection + '/actors?' + actors
+    const ref = myDirectionApi + '/actors?' + actors
 
     const response = await fetch(ref, {
         next: {

@@ -1,7 +1,7 @@
-import {myDirection} from "@/Models/Models";
+import {myDirectionApi} from "@/Models/Models";
 
 export async function createWatchListReq(index: number, name: string, user: string){
-    const response = await fetch(myDirection + '/watch/' + user, {
+    const response = await fetch(myDirectionApi + '/watch/' + user, {
         method: 'POST',
         body: JSON.stringify({
             index,
