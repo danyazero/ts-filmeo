@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      scale: {
+        '103': '1.03',
+      },
       gridTemplateColumns: {
         'lg': 'repeat(auto-fill, 24rem)',
         'sm': 'repeat(auto-fill, min(48%, 11rem))'

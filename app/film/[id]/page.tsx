@@ -12,6 +12,7 @@ import {MarkMovieView} from "../../../features/MarkMovieView";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 import {SeasonsList} from "@/widgets/SeasonsList/ui/SeasonsList";
+import {RateMovie} from "@/features/RateMovie";
 
 type Props = {
     params: {
